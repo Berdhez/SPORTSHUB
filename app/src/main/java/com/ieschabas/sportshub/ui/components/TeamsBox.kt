@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.ieschabas.sportshub.ui.screens.Team
 
 data class Equipo(
     val nombre: String,
@@ -17,22 +18,22 @@ data class Equipo(
 )
 
 @Composable
-fun TeamsBox(equipo: Equipo) {
+fun TeamsBox(equipo: Team) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 8.dp)
             .background(
                 color = Color(0xFF64D1DD),
-                shape = RoundedCornerShape(8.dp)
+                shape = RoundedCornerShape(12.dp),
             )
-            .padding(12.dp)
+            .padding(23.dp)
     ) {
         Column {
-            Text(text = equipo.nombre, style = MaterialTheme.typography.titleMedium, color = Color.Black)
+            Text(text = equipo.nombre, style = MaterialTheme.typography.titleLarge, color = Color.Black)
             Spacer(modifier = Modifier.height(4.dp))
-            Text(text = "Ciudad: ${equipo.ciudad}", style = MaterialTheme.typography.bodySmall, color = Color.Black)
-            Text(text = "IES: ${equipo.ies}", style = MaterialTheme.typography.bodySmall, color = Color.Black)
+            Text(text = "Ciudad: ${equipo.ciudad}", style = MaterialTheme.typography.bodyLarge, color = Color.Black)
+            Text(text = "IES: ${equipo.ies}", style = MaterialTheme.typography.bodyLarge, color = Color.Black)
         }
     }
 }
