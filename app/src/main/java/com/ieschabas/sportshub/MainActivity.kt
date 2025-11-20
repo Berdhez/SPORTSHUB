@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.ieschabas.sportshub.ui.theme.SPORTSHUBTheme
 import com.ieschabas.sportshub.ui.screens.ProfileScreen
+import com.ieschabas.sportshub.ui.screens.TeamsListScreen
 
 
 class MainActivity : ComponentActivity() {
@@ -14,7 +15,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             SPORTSHUBTheme {
-                ProfileScreen()   // 👈 MOSTRARÁ ESTA PANTALLA AL INICIAR
+                TeamsListScreen()   // 👈 MOSTRARÁ ESTA PANTALLA AL INICIAR
             }
         }
 
