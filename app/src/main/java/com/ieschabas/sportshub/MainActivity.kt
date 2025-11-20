@@ -15,7 +15,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             SPORTSHUBTheme {
-                TeamsListScreen()   // 👈 MOSTRARÁ ESTA PANTALLA AL INICIAR
+                ProfileScreen()   // 👈 MOSTRARÁ ESTA PANTALLA AL INICIAR
             }
         }
 
