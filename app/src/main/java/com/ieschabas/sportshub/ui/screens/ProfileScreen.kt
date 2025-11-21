@@ -22,8 +22,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.ieschabas.sportshub.ui.components.AppBottomBar
 import com.ieschabas.sportshub.ui.components.AppTopBar
-import com.ieschabas.sportshub.ui.theme.AzulPetroleo
-
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

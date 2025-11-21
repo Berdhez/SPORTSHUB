@@ -18,7 +18,8 @@ fun ProfileCard() {
         modifier = Modifier
             .fillMaxWidth(0.9f),
         shape = RoundedCornerShape(12.dp),
-        colors = CardDefaults.cardColors(containerColor = Color(0xFFF7F2FA))
+        colors = CardDefaults.cardColors(containerColor = Color(0xFFF7F2FA)),
+        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp)
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text("Nombre: Nombre Apellido", style = MaterialTheme.typography.bodyLarge)
