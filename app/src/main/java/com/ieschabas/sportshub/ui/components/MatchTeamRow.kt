@@ -7,7 +7,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.ieschabas.sportshub.ui.components.teams.TeamLogo
+import com.ieschabas.sportshub.ui.components.TeamLogo
 
 @Composable
 fun MatchTeamRow(teamName: String, logoRes: Int) {
@@ -15,7 +15,7 @@ fun MatchTeamRow(teamName: String, logoRes: Int) {
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier.padding(vertical = 4.dp)
     ) {
-        TeamLogo(resId = logoRes, size = 30)
+        TeamLogo(resId = logoRes, modifier = Modifier.size(40.dp))
 
         Spacer(modifier = Modifier.width(8.dp))
 
