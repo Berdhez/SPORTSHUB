@@ -8,6 +8,7 @@ import com.ieschabas.sportshub.ui.theme.SPORTSHUBTheme
 import com.ieschabas.sportshub.ui.screens.ProfileScreen
 import com.ieschabas.sportshub.ui.screens.TeamsListScreen
 import com.ieschabas.sportshub.ui.screens.MatchesScreen
+import com.ieschabas.sportshub.ui.screens.PlayerDetailScreen
 import com.ieschabas.sportshub.ui.screens.SettingsScreen
 import com.ieschabas.sportshub.ui.screens.Team
 import com.ieschabas.sportshub.ui.screens.TeamDetailScreen
@@ -19,7 +20,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             SPORTSHUBTheme {
-                SettingsScreen()   // 👈 MOSTRARÁ ESTA PANTALLA AL INICIAR
+                PlayerDetailScreen()   // 👈 MOSTRARÁ ESTA PANTALLA AL INICIAR
             }
         }
 
