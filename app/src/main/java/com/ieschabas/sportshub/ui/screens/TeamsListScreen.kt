@@ -1,0 +1,75 @@
+package com.ieschabas.sportshub.ui.screens
+
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import com.ieschabas.sportshub.ui.components.AppBottomBar
+import com.ieschabas.sportshub.ui.components.AppDrawer
+import com.ieschabas.sportshub.ui.components.AppTopBar
+import com.ieschabas.sportshub.ui.components.TeamsBox
+import kotlinx.coroutines.launch
+
+data class Team(
+    val nombre: String,
+    val ciudad: String,
+    val ies: String
+)
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun TeamsListScreen() {
+    val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+    val scope = rememberCoroutineScope()
+
+    ModalNavigationDrawer(
+        drawerState = drawerState,
+        drawerContent = {
+            AppDrawer(onCloseDrawer = {
+                scope.launch {
+                    drawerState.close()
+                }
+            })
+        }
+    ) {
+        var selectedItem by remember { mutableStateOf(0) }
+
+        val teams = listOf(
+            Team("Equipo 1", "—", "—"),
+            Team("Equipo 2", "—", "—"),
+            Team("Equipo 3", "—", "—"),
+            Team("Equipo 4", "—", "—"),
+            Team("Equipo 5", "—", "—"),
+            Team("Equipo 6", "—", "—")
+        )
+
+        Scaffold(
+            topBar = {
+                AppTopBar(title = "Equipos", onMenuClick = {
+                    scope.launch {
+                        drawerState.open()
+                    }
+                })
+            },
+            bottomBar = {
+                AppBottomBar(
+                    selectedItem = selectedItem,
+                    onItemSelected = { selectedItem = it }
+                )
+            }
+        ) { innerPadding ->
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding)
+            ) {
+                items(teams) {
+                    TeamsBox(equipo = it)
+                }
+            }
+        }
+    }
+}
