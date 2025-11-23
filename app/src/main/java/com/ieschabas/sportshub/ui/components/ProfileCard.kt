@@ -29,9 +29,9 @@ fun ProfileCard() {
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            // Badge "Verificado"
+
             AssistChip(
-                onClick = { /* Acción si quieres */ },
+                onClick = {  },
                 label = { Text("Verificado", color = Color(0xFF00FF00), fontWeight = FontWeight.Bold, style = MaterialTheme.typography.bodyLarge) },
                 colors = AssistChipDefaults.assistChipColors(
                     containerColor = Color(0xFFF7F2FA)

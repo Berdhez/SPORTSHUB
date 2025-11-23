@@ -25,9 +25,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ieschabas.sportshub.R
 import com.ieschabas.sportshub.ui.theme.SPORTSHUBTheme
+import androidx.compose.material3.Icon
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.SportsSoccer
 
 
-// Suponiendo que tienes un modelo de datos para Player
+
 data class Player(val number: Int, val name: String, val position: String)
 
 @Composable
@@ -53,13 +56,13 @@ fun PlayerRow(player: Player) {
             modifier = Modifier.padding(16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Image(
-                painter = painterResource(id = R.drawable.logo1),
-                contentDescription = "Player icon",
+            Icon(
+                imageVector = Icons.Filled.SportsSoccer,
+                contentDescription = "Soccer ball icon",
+                tint = Color(0xFF2E0854),
                 modifier = Modifier
                     .size(40.dp)
-                    .clip(CircleShape)
-                    .background(Color(0xFFE6DFF1))
+                    .background(Color(0xFFE6DFF1), shape = CircleShape)
                     .padding(4.dp)
             )
             Spacer(modifier = Modifier.width(16.dp))

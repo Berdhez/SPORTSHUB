@@ -41,7 +41,7 @@ fun TeamDetailScreen() {
         Column(
             modifier = Modifier
                 .padding(padding)
-                .padding(horizontal = 16.dp)
+                .padding(horizontal = 27.dp, vertical = 17.dp)
                 .verticalScroll(rememberScrollState())
         ) {
             TeamHeader(

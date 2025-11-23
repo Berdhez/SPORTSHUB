@@ -29,13 +29,14 @@ fun TeamHeader(
 ) {
     Card(
         modifier = Modifier
-            .fillMaxWidth(),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
+            .fillMaxWidth()
+            .height(250.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
         shape = RoundedCornerShape(16.dp)
     ) {
         Box(
             modifier = Modifier
-                .fillMaxWidth()
+                .fillMaxSize()
                 .background(
                     brush = Brush.horizontalGradient(
                         colors = listOf(
@@ -43,43 +44,46 @@ fun TeamHeader(
                             Color(0xFFC4C4D4)
                         )
                     )
-                )
+                ),
+            contentAlignment = Alignment.Center
         ) {
             Row(
                 modifier = Modifier
                     .padding(16.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                TeamLogo(modifier = Modifier.size(80.dp))
-                Spacer(modifier = Modifier.width(16.dp))
-                Column {
+                TeamLogo(modifier = Modifier.size(100.dp)) // logo a la izquierda
+                Spacer(modifier = Modifier.width(24.dp))
+                Column (
+                    verticalArrangement = Arrangement.Center
+                ){
                     Text(
                         text = teamName,
                         fontWeight = FontWeight.Bold,
-                        fontSize = 20.sp,
+                        fontSize = 24.sp,
                         color = Color.White
                     )
-                    Spacer(modifier = Modifier.height(8.dp))
+                    Spacer(modifier = Modifier.height(10.dp))
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Icon(
                             imageVector = Icons.Default.Person,
                             contentDescription = "Entrenador",
-                            modifier = Modifier.size(16.dp),
+                            modifier = Modifier.size(25.dp),
                             tint = Color.White
                         )
                         Spacer(modifier = Modifier.width(4.dp))
-                        Text(text = "Entrenador: $coachName", color = Color.White)
+                        Text(text = "Entrenador: $coachName", color = Color.White, fontSize = 17.sp)
                     }
-                    Spacer(modifier = Modifier.height(4.dp))
+                    Spacer(modifier = Modifier.height(10.dp))
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Icon(
                             imageVector = Icons.Default.Place,
                             contentDescription = "Estadio",
-                            modifier = Modifier.size(16.dp),
+                            modifier = Modifier.size(25.dp),
                             tint = Color.White
                         )
                         Spacer(modifier = Modifier.width(4.dp))
-                        Text(text = stadiumName, color = Color.White)
+                        Text(text = stadiumName, color = Color.White, fontSize = 17.sp)
                     }
                 }
             }
