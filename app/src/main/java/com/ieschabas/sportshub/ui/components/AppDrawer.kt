@@ -7,9 +7,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Divider
-import androidx.compose.material3.DividerDefaults
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ModalDrawerSheet
 import androidx.compose.material3.NavigationDrawerItem
@@ -32,7 +31,7 @@ fun AppDrawer(
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(bottom = 16.dp)
             )
-            HorizontalDivider(Modifier, DividerDefaults.Thickness, DividerDefaults.color)
+            Divider()
             Spacer(modifier = Modifier.height(16.dp))
             NavigationDrawerItem(
                 label = { Text("Ligas") },
@@ -55,12 +54,12 @@ fun AppDrawer(
                 onClick = { /* TODO */ }
             )
             Spacer(modifier = Modifier.height(16.dp))
-            HorizontalDivider(Modifier, DividerDefaults.Thickness, DividerDefaults.color)
+            Divider()
             Spacer(modifier = Modifier.height(16.dp))
             NavigationDrawerItem(
                 label = { Text("Inicio") },
                 selected = false,
-                onClick = { /* TODO */ },
+                onClick = { },
                 icon = { Icon(Icons.Default.Home, contentDescription = "Inicio") }
             )
             NavigationDrawerItem(
@@ -68,6 +67,12 @@ fun AppDrawer(
                 selected = false,
                 onClick = { /* TODO */ },
                 icon = { Icon(Icons.Default.Person, contentDescription = "Perfil") }
+            )
+            NavigationDrawerItem(
+                label = { Text("Ajustes") },
+                selected = false,
+                onClick = { /* TODO */ },
+                icon = { Icon(Icons.Default.Settings, contentDescription = "Ajustes") }
             )
         }
     }
