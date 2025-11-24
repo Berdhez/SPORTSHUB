@@ -18,6 +18,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ieschabas.sportshub.R
 import com.ieschabas.sportshub.ui.components.MyButton
@@ -27,6 +28,7 @@ import com.ieschabas.sportshub.ui.components.MyTopAppBar
 import com.ieschabas.sportshub.ui.theme.AzulPetroleo
 
 @Composable
+
 fun LoginScreen() {
     var Email by remember { mutableStateOf("") }
     var Contraseña by remember { mutableStateOf("") }

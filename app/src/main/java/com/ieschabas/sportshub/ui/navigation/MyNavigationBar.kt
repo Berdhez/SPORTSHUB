@@ -22,6 +22,7 @@ fun MyNavigationBar(
                 label = { Text(item.label) },
                 selected = selectedItem == index,
                 onClick = { onItemSelected(index) },
+
                 colors = NavigationBarItemDefaults.colors(
                     selectedIconColor = Color.White,
                     unselectedIconColor = Color.LightGray,

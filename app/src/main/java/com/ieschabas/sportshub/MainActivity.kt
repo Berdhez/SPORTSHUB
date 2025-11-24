@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import com.ieschabas.sportshub.ui.components.ClassificationItem
+import com.ieschabas.sportshub.ui.screens.AboutScreen
 import com.ieschabas.sportshub.ui.screens.ClassificationScreen
 import com.ieschabas.sportshub.ui.screens.DashboardScreen
 import com.ieschabas.sportshub.ui.screens.LeagueDetailScreen
@@ -18,7 +19,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             SPORTSHUBTheme {
-                LoginScreen()
+                AboutScreen()
             }
 
         }
