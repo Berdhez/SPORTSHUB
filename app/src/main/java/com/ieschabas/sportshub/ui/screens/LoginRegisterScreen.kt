@@ -57,13 +57,13 @@ fun LoginScreen() {
             MyTextField(
                 value = Email,
                 onValueChange = { Email = it },
-                label = "Email"
+                placeholder = "Email"
             )
             Spacer(modifier = Modifier.height(8.dp))
             MyTextField(
                 value = Contraseña,
                 onValueChange = { Contraseña = it },
-                label = "Password",
+                placeholder = "Password",
                 isPassword = true
             )
             Spacer(modifier = Modifier.height(16.dp))
