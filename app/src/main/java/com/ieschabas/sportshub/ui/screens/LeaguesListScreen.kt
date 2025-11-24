@@ -1,0 +1,70 @@
+package com.ieschabas.sportshub.ui.screens
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import com.ieschabas.sportshub.ui.components.LeagueCard
+import com.ieschabas.sportshub.ui.components.MyTopAppBar
+import com.ieschabas.sportshub.ui.navigation.MyNavigationBar
+
+@Composable
+fun LeagueListScreen() {
+
+    var selectedItem by remember { mutableStateOf(1) }
+
+
+    val leagues = remember {
+        listOf(
+            "LaLiga", "Premier League", "Serie A", "Bundesliga", "Ligue 1", "Eredivisie"
+        )
+    }
+
+    Scaffold(
+        topBar = {
+            MyTopAppBar(
+                title = "Ligas",
+                navigationIcon = {
+
+                    IconButton(onClick = {  }) {
+                        Icon(
+                            imageVector = Icons.Default.Menu,
+                            contentDescription = "Menú",
+                            tint = Color.White
+                        )
+                    }
+                }
+            )
+        },
+        bottomBar = {
+
+            MyNavigationBar(
+                selectedItem = selectedItem,
+                onItemSelected = { selectedItem = it }
+            )
+        }
+    ) { paddingValues ->
+
+        LazyColumn(
+            modifier = Modifier.padding(paddingValues)
+        ) {
+            items(leagues) { leagueName ->
+                LeagueCard(
+                    leagueName = leagueName,
+                    city = "—",
+                    onClick = {  }
+                )
+            }
+        }
+    }
+}
