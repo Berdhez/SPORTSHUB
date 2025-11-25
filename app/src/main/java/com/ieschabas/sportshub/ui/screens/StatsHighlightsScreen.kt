@@ -13,7 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.ieschabas.sportshub.R
 import com.ieschabas.sportshub.ui.components.MyTopAppBar
 import com.ieschabas.sportshub.ui.components.StatHighlightCard
-import com.ieschabas.sportshub.ui.navigation.MyNavigationBar
+import com.ieschabas.sportshub.ui.components.MyNavigationBar
 
 @Preview
 @Composable

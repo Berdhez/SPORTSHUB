@@ -6,10 +6,12 @@ import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavController
 import com.ieschabas.sportshub.ui.theme.AzulPetroleo
 
 @Composable
 fun AppBottomBar(
+    navController: NavController,
     selectedItem: Int,
     onItemSelected: (Int) -> Unit
 ) {
@@ -20,6 +22,7 @@ fun AppBottomBar(
         Icons.Filled.Star,
         Icons.Filled.Person
     )
+    val routes = listOf("home", "leagues", "matches", "profile")
 
     NavigationBar(
         containerColor = AzulPetroleo,
@@ -30,7 +33,14 @@ fun AppBottomBar(
                 icon = { Icon(icons[index], contentDescription = item) },
                 label = { Text(item) },
                 selected = selectedItem == index,
-                onClick = { onItemSelected(index) },
+                onClick = { onItemSelected(index)
+                    navController.navigate(routes[index]){
+                        launchSingleTop = true
+                        popUpTo(navController.graph.startDestinationId) {
+                            saveState = true}
+                            restoreState = true
+                        }
+                    },
                 alwaysShowLabel = true,
                 colors = NavigationBarItemDefaults.colors(
                     selectedIconColor = Color.White,

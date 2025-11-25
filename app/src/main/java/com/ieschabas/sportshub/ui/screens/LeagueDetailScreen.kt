@@ -33,7 +33,7 @@ import com.ieschabas.sportshub.R
 import com.ieschabas.sportshub.ui.components.AppDrawer
 import com.ieschabas.sportshub.ui.components.MyButton
 import com.ieschabas.sportshub.ui.components.MyTopAppBar
-import com.ieschabas.sportshub.ui.navigation.MyNavigationBar
+import com.ieschabas.sportshub.ui.components.MyNavigationBar
 import com.ieschabas.sportshub.ui.theme.AzulPetroleo
 import kotlinx.coroutines.launch
 

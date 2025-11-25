@@ -14,6 +14,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.ieschabas.sportshub.ui.components.AppDrawer
 import com.ieschabas.sportshub.ui.components.AppTopBar
 import com.ieschabas.sportshub.ui.components.ButtonSettingItem
@@ -25,7 +27,8 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SettingsScreen() {
+fun SettingsScreen(navController: NavController) {
+
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
 
@@ -70,8 +73,9 @@ fun SettingsScreen() {
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                SectionTitle("Acerca de")
-                InfoSettingItem(title = "Versión de la aplicación", value = "1.0.0")
+//                SectionTitle("Acerca de")
+                ButtonSettingItem(title = "Acerca de"
+                )
                 InfoSettingItem(title = "Política de privacidad")
                 InfoSettingItem(title = "Términos de servicio")
             }
@@ -83,7 +87,10 @@ fun SettingsScreen() {
 @Preview(showBackground = true)
 @Composable
 fun SettingsScreenPreview() {
+    val navController = rememberNavController()
     SPORTSHUBTheme {
-        SettingsScreen()
+        SettingsScreen(
+            navController = navController
+        )
     }
 }

@@ -11,6 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.ieschabas.sportshub.ui.components.AppDrawer
 import com.ieschabas.sportshub.ui.components.AppTopBar
 import com.ieschabas.sportshub.ui.components.PlayerInfoCard
@@ -20,7 +22,7 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PlayerDetailScreen() {
+fun PlayerDetailScreen(navController: NavController) {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
 
@@ -65,7 +67,10 @@ fun PlayerDetailScreen() {
 @Preview(showBackground = true)
 @Composable
 fun PlayerDetailScreenPreview() {
+    val navController = rememberNavController()
     SPORTSHUBTheme {
-        PlayerDetailScreen()
+        PlayerDetailScreen(
+            navController = navController
+        )
     }
 }

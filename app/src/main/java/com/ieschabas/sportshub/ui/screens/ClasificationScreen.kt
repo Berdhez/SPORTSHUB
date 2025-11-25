@@ -27,7 +27,7 @@ import com.ieschabas.sportshub.R
 import com.ieschabas.sportshub.ui.components.ClassificationRow
 import com.ieschabas.sportshub.ui.components.MyTopAppBar
 import com.ieschabas.sportshub.ui.components.TeamStats
-import com.ieschabas.sportshub.ui.navigation.MyNavigationBar
+import com.ieschabas.sportshub.ui.components.MyNavigationBar
 
 @Composable
 fun ClassificationScreen() {

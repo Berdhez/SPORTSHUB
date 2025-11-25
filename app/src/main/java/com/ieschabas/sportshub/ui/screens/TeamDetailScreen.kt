@@ -22,6 +22,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.ieschabas.sportshub.ui.components.AppBottomBar
 import com.ieschabas.sportshub.ui.components.AppDrawer
 import com.ieschabas.sportshub.ui.components.AppTopBar
@@ -34,7 +36,7 @@ import com.ieschabas.sportshub.ui.theme.SPORTSHUBTheme
 import kotlinx.coroutines.launch
 
 @Composable
-fun TeamDetailScreen() {
+fun TeamDetailScreen(navController: NavController) {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
 
@@ -58,7 +60,8 @@ fun TeamDetailScreen() {
                 })
             },
             bottomBar = {
-                AppBottomBar(selectedItem = selectedItem, onItemSelected = { selectedItem = it })
+
+                AppBottomBar( navController = navController, selectedItem = selectedItem, onItemSelected = { selectedItem = it })
             }
         ) { padding ->
             Column(
@@ -100,7 +103,10 @@ fun TeamDetailScreen() {
 @Preview(showBackground = true)
 @Composable
 fun TeamDetailScreenPreview() {
+    val navController = rememberNavController()
     SPORTSHUBTheme {
-        TeamDetailScreen()
+        TeamDetailScreen(
+            navController = navController
+        )
     }
 }

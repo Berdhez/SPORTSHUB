@@ -7,6 +7,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.ieschabas.sportshub.R
 import com.ieschabas.sportshub.ui.components.AppBottomBar
 import com.ieschabas.sportshub.ui.components.AppDrawer
@@ -17,7 +18,7 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MatchesScreen() {
+fun MatchesScreen(navController: NavController) {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
 
@@ -59,6 +60,7 @@ fun MatchesScreen() {
             },
             bottomBar = {
                 AppBottomBar(
+                    navController = navController,
                     selectedItem = selectedItem,
                     onItemSelected = { selectedItem = it }
                 )

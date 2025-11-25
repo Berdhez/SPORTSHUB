@@ -7,6 +7,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavController
 import com.ieschabas.sportshub.ui.components.AppBottomBar
 import com.ieschabas.sportshub.ui.components.AppDrawer
 import com.ieschabas.sportshub.ui.components.AppTopBar
@@ -21,7 +22,7 @@ data class Team(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TeamsListScreen() {
+fun TeamsListScreen(navController: NavController) {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
 
@@ -56,6 +57,7 @@ fun TeamsListScreen() {
             },
             bottomBar = {
                 AppBottomBar(
+                    navController = navController,
                     selectedItem = selectedItem,
                     onItemSelected = { selectedItem = it }
                 )
