@@ -63,7 +63,7 @@ fun AboutScreen() {
             )
             Spacer(modifier = Modifier.height(24.dp))
             Text(
-                text = "Esta aplicación ha sido desarrollada como proyecto para la asignatura de Programación Multimedia y de Dispositivos Móviles del IES Historiador Chabàs.",
+                text = "Esta aplicación ha sido desarrollada como proyecto para la asignatura de Programación Multimedia y Dispositivos Móviles del IES Historiador Chabàs.",
                 textAlign = TextAlign.Center,
                 fontSize = 14.sp
             )

@@ -31,8 +31,8 @@ import com.ieschabas.sportshub.ui.navigation.MyNavigationBar
 
 @Composable
 fun ClassificationScreen() {
-    // CAMBIO: El ítem seleccionado es el 1 (Ligas)
-    var selectedItem by remember { mutableStateOf(1) }
+
+    var selectedItem by remember { mutableStateOf(4) }
 
     val teamsData = remember {
         listOf(

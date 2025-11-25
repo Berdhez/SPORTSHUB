@@ -9,14 +9,18 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -26,22 +30,38 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ieschabas.sportshub.R
+import com.ieschabas.sportshub.ui.components.AppDrawer
 import com.ieschabas.sportshub.ui.components.MyButton
 import com.ieschabas.sportshub.ui.components.MyTopAppBar
 import com.ieschabas.sportshub.ui.navigation.MyNavigationBar
 import com.ieschabas.sportshub.ui.theme.AzulPetroleo
+import kotlinx.coroutines.launch
 
 @Composable
 fun LeagueDetailScreen() {
+    val scope = rememberCoroutineScope()
+    val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+    ModalNavigationDrawer(
+        drawerState = drawerState,
+        drawerContent = {
+            AppDrawer(onCloseDrawer = {
+                scope.launch {
+                    drawerState.close()
+                }
+            })
+        }
+    ) {
 
-    var selectedItem by remember { mutableStateOf(1) }
+    var selectedItem by remember { mutableStateOf(4) }
 
     Scaffold(
         topBar = {
             MyTopAppBar(
                 title = "Detalle de liga",
                 navigationIcon = {
-                    IconButton(onClick = {  }) {
+                    IconButton(onClick = { scope.launch {
+                        drawerState.open()
+                    }  }) {
                         Icon(
                             imageVector = Icons.Default.Menu,
                             contentDescription = "Menú",
@@ -108,4 +128,5 @@ fun LeagueDetailScreen() {
             )
         }
     }
+}
 }

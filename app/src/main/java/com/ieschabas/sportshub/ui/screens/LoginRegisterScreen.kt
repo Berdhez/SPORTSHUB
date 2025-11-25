@@ -65,7 +65,7 @@ fun LoginScreen() {
             MyTextField(
                 value = Contraseña,
                 onValueChange = { Contraseña = it },
-                placeholder = "Password",
+                placeholder = "Contraseña",
                 isPassword = true
             )
             Spacer(modifier = Modifier.height(16.dp))
@@ -81,7 +81,7 @@ fun LoginScreen() {
             Spacer(modifier = Modifier.height(24.dp))
 
             MyButton(
-                text = "Login",
+                text = "Entrar",
                 onClick = {  },
                 modifier = Modifier.fillMaxWidth()
             )
