@@ -29,7 +29,8 @@ fun PlayerDetailScreen(navController: NavController) {
     ModalNavigationDrawer(
         drawerState = drawerState,
         drawerContent = {
-            AppDrawer(onCloseDrawer = {
+            AppDrawer( navController = navController,
+                onCloseDrawer = {
                 scope.launch {
                     drawerState.close()
                 }

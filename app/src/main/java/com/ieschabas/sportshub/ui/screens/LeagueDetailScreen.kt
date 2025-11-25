@@ -29,6 +29,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.ieschabas.sportshub.R
 import com.ieschabas.sportshub.ui.components.AppDrawer
 import com.ieschabas.sportshub.ui.components.MyButton
@@ -38,13 +39,15 @@ import com.ieschabas.sportshub.ui.theme.AzulPetroleo
 import kotlinx.coroutines.launch
 
 @Composable
-fun LeagueDetailScreen() {
+fun LeagueDetailScreen(navController: NavController) {
     val scope = rememberCoroutineScope()
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     ModalNavigationDrawer(
         drawerState = drawerState,
         drawerContent = {
-            AppDrawer(onCloseDrawer = {
+            AppDrawer(
+                navController = navController,
+                onCloseDrawer = {
                 scope.launch {
                     drawerState.close()
                 }

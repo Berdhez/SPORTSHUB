@@ -9,6 +9,8 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Divider
+import androidx.compose.material3.DividerDefaults
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ModalDrawerSheet
 import androidx.compose.material3.NavigationDrawerItem
@@ -19,10 +21,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
 @Composable
-fun AppDrawer(
-    onCloseDrawer: () -> Unit
+fun AppDrawer(navController: NavController,
+              onCloseDrawer: () -> Unit
 ) {
     ModalDrawerSheet {
         Column(modifier = Modifier.padding(16.dp)) {
@@ -32,47 +35,47 @@ fun AppDrawer(
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(bottom = 16.dp)
             )
-            Divider()
+            HorizontalDivider(Modifier, DividerDefaults.Thickness, DividerDefaults.color)
             Spacer(modifier = Modifier.height(16.dp))
             NavigationDrawerItem(
                 label = { Text("Ligas") },
                 selected = false,
-                onClick = { /* TODO */ }
+                onClick = { navController.navigate("leagues")}
             )
             NavigationDrawerItem(
                 label = { Text("Equipos") },
                 selected = false,
-                onClick = { /* TODO */ }
+                onClick = { navController.navigate("teams")}
             )
             NavigationDrawerItem(
                 label = { Text("Partidos") },
                 selected = false,
-                onClick = { /* TODO */ }
+                onClick = { navController.navigate("matches") }
             )
             NavigationDrawerItem(
                 label = { Text("Clasificación") },
                 selected = false,
-                onClick = { /* TODO */ }
+                onClick = { navController.navigate("classification")}
             )
             Spacer(modifier = Modifier.height(16.dp))
-            Divider()
+            HorizontalDivider(Modifier, DividerDefaults.Thickness, DividerDefaults.color)
             Spacer(modifier = Modifier.height(16.dp))
             NavigationDrawerItem(
                 label = { Text("Inicio") },
                 selected = false,
-                onClick = { },
+                onClick = {navController.navigate("home")},
                 icon = { Icon(Icons.Default.Home, contentDescription = "Inicio") }
             )
             NavigationDrawerItem(
                 label = { Text("Perfil") },
                 selected = false,
-                onClick = { /* TODO */ },
+                onClick = { navController.navigate("profile") },
                 icon = { Icon(Icons.Default.Person, contentDescription = "Perfil") }
             )
             NavigationDrawerItem(
                 label = { Text("Ajustes") },
                 selected = false,
-                onClick = { /* TODO */ },
+                onClick = {navController.navigate("settings")},
                 icon = { Icon(Icons.Default.Settings, contentDescription = "Ajustes") }
             )
         }

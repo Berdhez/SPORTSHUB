@@ -1,5 +1,8 @@
 package com.ieschabas.sportshub.ui.model
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Match(
     val time: String,
     val homeTeam: String,
