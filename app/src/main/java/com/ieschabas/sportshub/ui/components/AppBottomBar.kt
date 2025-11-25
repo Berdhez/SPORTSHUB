@@ -1,6 +1,7 @@
 package com.ieschabas.sportshub.ui.components
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -15,7 +16,7 @@ fun AppBottomBar(
     val items = listOf("Inicio", "Ligas", "Partidos", "Perfil")
     val icons = listOf(
         Icons.Filled.Home,
-        Icons.Filled.List,
+        Icons.AutoMirrored.Filled.List,
         Icons.Filled.Star,
         Icons.Filled.Person
     )
