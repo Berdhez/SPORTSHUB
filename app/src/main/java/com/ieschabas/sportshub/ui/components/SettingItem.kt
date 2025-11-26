@@ -74,8 +74,9 @@ fun SwitchSettingItem(title: String, initialChecked: Boolean) {
 }
 
 @Composable
-fun ButtonSettingItem(title: String) {
-    SettingItemCard(onClick = { /* TODO: Handle click */ }) {
+fun ButtonSettingItem(title: String,
+                      onClick: () -> Unit) {
+    SettingItemCard(onClick = onClick) {
         Text(text = title, fontSize = 16.sp, modifier = Modifier.weight(1f))
         Icon(imageVector = Icons.AutoMirrored.Filled.ArrowForward, contentDescription = null)
     }

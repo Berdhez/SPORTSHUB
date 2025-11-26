@@ -63,19 +63,22 @@ fun SettingsScreen(navController: NavController) {
                 SectionTitle("General")
                 SwitchSettingItem(title = "Modo Oscuro", initialChecked = false)
                 SwitchSettingItem(title = "Activar Notificaciones", initialChecked = true)
-                ButtonSettingItem(title = "Gestionar cuenta")
+                ButtonSettingItem(title = "Gestionar cuenta",
+                    onClick = { /* TODO */ })
 
                 Spacer(modifier = Modifier.height(16.dp))
 
                 SectionTitle("Datos y sincronización")
                 SwitchSettingItem(title = "Sincronización Automática", initialChecked = true)
                 SwitchSettingItem(title = "Descargar solo con Wi-Fi", initialChecked = true)
-                ButtonSettingItem(title = "Borrar caché")
+                ButtonSettingItem(title = "Borrar caché",
+                    onClick = { /* TODO */ })
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-//                SectionTitle("Acerca de")
-                ButtonSettingItem(title = "Acerca de"
+
+                ButtonSettingItem(title = "Acerca de",
+                    onClick = { navController.navigate("about") }
                 )
                 InfoSettingItem(title = "Política de privacidad")
                 InfoSettingItem(title = "Términos de servicio")
