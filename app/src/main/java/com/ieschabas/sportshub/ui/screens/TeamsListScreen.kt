@@ -13,6 +13,8 @@ import com.ieschabas.sportshub.ui.components.AppDrawer
 import com.ieschabas.sportshub.ui.components.AppTopBar
 import com.ieschabas.sportshub.ui.components.TeamsBox
 import kotlinx.coroutines.launch
+import java.net.URLEncoder
+import java.nio.charset.StandardCharsets
 
 data class Team(
     val nombre: String,
@@ -40,7 +42,7 @@ fun TeamsListScreen(navController: NavController) {
         var selectedItem by remember { mutableStateOf(0) }
 
         val teams = listOf(
-            Team("Equipo 1", "—", "—"),
+            Team("IES Chabàs", "—", "—"),
             Team("Equipo 2", "—", "—"),
             Team("Equipo 3", "—", "—"),
             Team("Equipo 4", "—", "—"),
@@ -69,8 +71,13 @@ fun TeamsListScreen(navController: NavController) {
                     .fillMaxSize()
                     .padding(innerPadding)
             ) {
-                items(teams) {
-                    TeamsBox(equipo = it)
+                items(teams) { team ->
+                    TeamsBox(equipo = team,
+                        onClick = {
+                            val id = URLEncoder.encode(team.nombre, StandardCharsets.UTF_8.toString())
+                            navController.navigate("teamDetails/$id")
+                        }
+                    )
                 }
             }
         }

@@ -1,6 +1,7 @@
 package com.ieschabas.sportshub.ui.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
@@ -18,15 +19,18 @@ data class Equipo(
 )
 
 @Composable
-fun TeamsBox(equipo: Team) {
+fun TeamsBox(equipo: Team,
+             modifier: Modifier = Modifier,
+             onClick: () -> Unit) {
     Box(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 8.dp)
             .background(
                 color = Color(0xFF64D1DD),
                 shape = RoundedCornerShape(12.dp),
             )
+            .clickable(onClick = onClick)
             .padding(23.dp)
     ) {
         Column {
