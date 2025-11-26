@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
 import com.ieschabas.sportshub.ui.components.AppDrawer
 import com.ieschabas.sportshub.ui.components.AppTopBar
 import com.ieschabas.sportshub.ui.components.PlayerInfoCard

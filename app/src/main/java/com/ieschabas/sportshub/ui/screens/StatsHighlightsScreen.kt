@@ -10,14 +10,15 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
 import com.ieschabas.sportshub.R
 import com.ieschabas.sportshub.ui.components.MyTopAppBar
 import com.ieschabas.sportshub.ui.components.StatHighlightCard
-import com.ieschabas.sportshub.ui.navigation.MyNavigationBar
+import com.ieschabas.sportshub.ui.components.MyNavigationBar
 
-@Preview
+
 @Composable
-fun StatsHighlightsScreen() {
+fun StatsHighlightsScreen(navController: NavController) {
     var selectedItem by remember { mutableStateOf(2) }
     Scaffold(
         topBar = {
@@ -36,6 +37,7 @@ fun StatsHighlightsScreen() {
         },
                 bottomBar = {
             MyNavigationBar(
+                navController= navController,
                 selectedItem = selectedItem,
                 onItemSelected = { selectedItem = it }
             )

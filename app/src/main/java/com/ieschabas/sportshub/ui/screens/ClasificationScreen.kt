@@ -23,14 +23,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.ieschabas.sportshub.R
 import com.ieschabas.sportshub.ui.components.ClassificationRow
 import com.ieschabas.sportshub.ui.components.MyTopAppBar
 import com.ieschabas.sportshub.ui.components.TeamStats
-import com.ieschabas.sportshub.ui.navigation.MyNavigationBar
+import com.ieschabas.sportshub.ui.components.MyNavigationBar
 
 @Composable
-fun ClassificationScreen() {
+fun ClassificationScreen(navController: NavController) {
 
     var selectedItem by remember { mutableStateOf(4) }
 
@@ -53,6 +54,7 @@ fun ClassificationScreen() {
         topBar = { MyTopAppBar(title = "Clasificación") },
         bottomBar = {
             MyNavigationBar(
+                navController =navController,
                 selectedItem = selectedItem,
                 onItemSelected = { selectedItem = it }
             )

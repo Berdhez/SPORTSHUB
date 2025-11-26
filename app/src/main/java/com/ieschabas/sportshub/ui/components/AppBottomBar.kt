@@ -6,10 +6,12 @@ import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavController
 import com.ieschabas.sportshub.ui.theme.AzulPetroleo
 
 @Composable
 fun AppBottomBar(
+    navController: NavController.Companion,
     selectedItem: Int,
     onItemSelected: (Int) -> Unit
 ) {

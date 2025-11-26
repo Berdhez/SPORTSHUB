@@ -18,15 +18,15 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
 import com.ieschabas.sportshub.ui.components.AppDrawer
 import com.ieschabas.sportshub.ui.components.LeagueCard
 import com.ieschabas.sportshub.ui.components.MyTopAppBar
-import com.ieschabas.sportshub.ui.navigation.MyNavigationBar
+import com.ieschabas.sportshub.ui.components.MyNavigationBar
 import kotlinx.coroutines.launch
 
 @Composable
-fun LeagueListScreen() {
+fun LeagueListScreen(navController: NavController) {
     val scope = rememberCoroutineScope()
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     ModalNavigationDrawer(
@@ -72,6 +72,7 @@ fun LeagueListScreen() {
             bottomBar = {
 
                 MyNavigationBar(
+                    navController = navController,
                     selectedItem = selectedItem,
                     onItemSelected = { selectedItem = it }
                 )
