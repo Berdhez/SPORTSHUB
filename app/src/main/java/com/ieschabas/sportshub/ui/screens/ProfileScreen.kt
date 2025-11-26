@@ -87,7 +87,11 @@ fun ProfileScreen(navController: NavController) {
 
                 ProfileCard()
 
-                ProfileDangerZone(onLogoutClick = { })
+                ProfileDangerZone(onLogoutClick = {
+                    navController.navigate("login") {
+                        popUpTo(0)
+                    }
+                })
             }
         }
     }

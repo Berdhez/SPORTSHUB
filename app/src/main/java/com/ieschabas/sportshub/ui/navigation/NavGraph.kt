@@ -25,6 +25,7 @@ fun AppNavigation() {
         startDestination = "teamsList"
     ) {
         composable("matches") { MatchesScreen(navController) }
+        composable("login") { LoginScreen() }
         composable("profile") { ProfileScreen(navController) }
         composable("team") { TeamDetailScreen(navController) }
         composable("teamsList") { TeamsListScreen(navController) }
