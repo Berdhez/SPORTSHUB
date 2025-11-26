@@ -15,7 +15,7 @@ import com.ieschabas.sportshub.ui.screens.PlayerDetailScreen
 import com.ieschabas.sportshub.ui.screens.ProfileScreen
 import com.ieschabas.sportshub.ui.screens.RegistrationScreen
 import com.ieschabas.sportshub.ui.screens.SettingsScreen
-import com.ieschabas.sportshub.ui.screens.StatsHighlightsScreen
+
 import com.ieschabas.sportshub.ui.screens.TeamDetailScreen
 import com.ieschabas.sportshub.ui.screens.TeamsListScreen
 
@@ -31,7 +31,6 @@ fun AppNavigation() {
         composable("team") { TeamDetailScreen(navController) }
         composable("teamsList") { TeamsListScreen(navController) }
         composable("leagueList") { LeagueListScreen(navController) }
-        composable("stats") { StatsHighlightsScreen(navController) }
         composable("home") { DashboardScreen(navController) }
         composable("login") { LoginScreen(navController) }
         composable("register") { RegistrationScreen(navController) }
