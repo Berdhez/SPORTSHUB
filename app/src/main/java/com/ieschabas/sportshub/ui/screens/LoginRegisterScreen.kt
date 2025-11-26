@@ -20,16 +20,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.ieschabas.sportshub.R
+
 import com.ieschabas.sportshub.ui.components.MyButton
 import com.ieschabas.sportshub.ui.components.MySwitch
 import com.ieschabas.sportshub.ui.components.MyTextField
 import com.ieschabas.sportshub.ui.components.MyTopAppBar
 import com.ieschabas.sportshub.ui.theme.AzulPetroleo
 
+
 @Composable
 
-fun LoginScreen() {
+fun LoginScreen(navController: NavController) {
     var Email by remember { mutableStateOf("") }
     var Contraseña by remember { mutableStateOf("") }
     var rememberMe by remember { mutableStateOf(false) }
@@ -82,7 +85,7 @@ fun LoginScreen() {
 
             MyButton(
                 text = "Entrar",
-                onClick = {  },
+                onClick = { navController.navigate("home") },
                 modifier = Modifier.fillMaxWidth()
             )
             Spacer(modifier = Modifier.height(8.dp))
@@ -93,7 +96,7 @@ fun LoginScreen() {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text("¿No tienes cuenta?")
-                TextButton(onClick = {  }) {
+                TextButton(onClick = {navController.navigate("register")  }) {
                     Text("Regístrate", color = AzulPetroleo)
                 }
             }

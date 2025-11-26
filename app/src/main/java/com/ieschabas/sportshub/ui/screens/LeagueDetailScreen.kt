@@ -29,16 +29,17 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.ieschabas.sportshub.R
 import com.ieschabas.sportshub.ui.components.AppDrawer
 import com.ieschabas.sportshub.ui.components.MyButton
 import com.ieschabas.sportshub.ui.components.MyTopAppBar
-import com.ieschabas.sportshub.ui.navigation.MyNavigationBar
+import com.ieschabas.sportshub.ui.components.MyNavigationBar
 import com.ieschabas.sportshub.ui.theme.AzulPetroleo
 import kotlinx.coroutines.launch
 
 @Composable
-fun LeagueDetailScreen() {
+fun LeagueDetailScreen(navController: NavController) {
     val scope = rememberCoroutineScope()
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     ModalNavigationDrawer(
@@ -73,6 +74,7 @@ fun LeagueDetailScreen() {
         },
         bottomBar = {
             MyNavigationBar(
+                navController=navController,
                 selectedItem = selectedItem,
                 onItemSelected = { selectedItem = it }
             )

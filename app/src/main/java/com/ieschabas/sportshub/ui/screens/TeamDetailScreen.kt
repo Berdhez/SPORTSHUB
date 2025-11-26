@@ -22,6 +22,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.ieschabas.sportshub.ui.components.AppBottomBar
 import com.ieschabas.sportshub.ui.components.AppDrawer
 import com.ieschabas.sportshub.ui.components.AppTopBar
@@ -34,7 +36,7 @@ import com.ieschabas.sportshub.ui.theme.SPORTSHUBTheme
 import kotlinx.coroutines.launch
 
 @Composable
-fun TeamDetailScreen() {
+fun TeamDetailScreen(navController: NavController) { // Step 1: Accept NavController
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
 
@@ -48,7 +50,7 @@ fun TeamDetailScreen() {
             })
         }
     ) {
-        var selectedItem by remember { mutableStateOf(0) }
+        var selectedItem by remember { mutableStateOf(4) }
         Scaffold(
             topBar = {
                 AppTopBar(title = "Detalle de equipo", onMenuClick = {
@@ -58,7 +60,12 @@ fun TeamDetailScreen() {
                 })
             },
             bottomBar = {
-                AppBottomBar(selectedItem = selectedItem, onItemSelected = { selectedItem = it })
+                // Step 2: Pass NavController to AppBottomBar
+                AppBottomBar(
+                    selectedItem = selectedItem,
+                    onItemSelected = { selectedItem = it },
+                    navController = NavController
+                )
             }
         ) { padding ->
             Column(
@@ -101,6 +108,7 @@ fun TeamDetailScreen() {
 @Composable
 fun TeamDetailScreenPreview() {
     SPORTSHUBTheme {
-        TeamDetailScreen()
+        // Step 3: Provide a mock NavController for the preview
+        TeamDetailScreen(navController = rememberNavController())
     }
 }

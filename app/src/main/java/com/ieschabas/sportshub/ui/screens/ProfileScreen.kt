@@ -19,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.ieschabas.sportshub.ui.components.AppBottomBar
 import com.ieschabas.sportshub.ui.components.AppDrawer
 import com.ieschabas.sportshub.ui.components.AppTopBar
@@ -26,7 +27,7 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ProfileScreen() {
+fun ProfileScreen(navController: NavController) {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
 
@@ -55,6 +56,7 @@ fun ProfileScreen() {
             },
             bottomBar = {
                 AppBottomBar(
+                    navController = NavController,
                     selectedItem = selectedItem,
                     onItemSelected = { selectedItem = it }
                 )

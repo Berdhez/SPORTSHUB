@@ -21,14 +21,16 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
 import com.ieschabas.sportshub.ui.components.AppDrawer
 import com.ieschabas.sportshub.ui.components.DashboardCard
 import com.ieschabas.sportshub.ui.components.MyTopAppBar
-import com.ieschabas.sportshub.ui.navigation.MyNavigationBar
+import com.ieschabas.sportshub.ui.components.MyNavigationBar
 import kotlinx.coroutines.launch
 
 @Composable
-fun DashboardScreen() {
+fun DashboardScreen(navController: NavController) {
     val scope = rememberCoroutineScope()
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     ModalNavigationDrawer(
@@ -63,6 +65,7 @@ fun DashboardScreen() {
             },
             bottomBar = {
                 MyNavigationBar(
+                    navController = navController,
                     selectedItem = selectedItem,
                     onItemSelected = { selectedItem = it }
                 )
@@ -81,13 +84,13 @@ fun DashboardScreen() {
                     DashboardCard(
                         text = "Ligas",
                         backgroundColor = Color(0xFF4DB6AC),
-                        onClick = { },
+                        onClick = {navController.navigate("league") },
                         modifier = Modifier.weight(1f)
                     )
                     DashboardCard(
                         text = "Equipos",
                         backgroundColor = Color(0xFF4FC3F7),
-                        onClick = { },
+                        onClick = {navController.navigate("team") },
                         modifier = Modifier.weight(1f)
                     )
                 }
@@ -96,13 +99,13 @@ fun DashboardScreen() {
                     DashboardCard(
                         text = "Partidos",
                         backgroundColor = Color.Green,
-                        onClick = { },
+                        onClick = {navController.navigate("matches") },
                         modifier = Modifier.weight(1f)
                     )
                     DashboardCard(
                         text = "Clasificación",
                         backgroundColor = Color(0xFFC62828),
-                        onClick = { },
+                        onClick = { navController.navigate("clasification")},
                         modifier = Modifier.weight(1f)
                     )
                 }
