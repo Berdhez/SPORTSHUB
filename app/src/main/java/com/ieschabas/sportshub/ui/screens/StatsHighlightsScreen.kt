@@ -19,7 +19,7 @@ import com.ieschabas.sportshub.ui.components.MyNavigationBar
 
 @Composable
 fun StatsHighlightsScreen(navController: NavController) {
-    var selectedItem by remember { mutableStateOf(2) }
+    var selectedItem by remember { mutableStateOf(4) }
     Scaffold(
         topBar = {
             MyTopAppBar(
