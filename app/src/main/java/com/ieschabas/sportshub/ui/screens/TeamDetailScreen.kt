@@ -51,7 +51,7 @@ fun TeamDetailScreen(navController: NavController) {
             })
         }
     ) {
-        var selectedItem by remember { mutableStateOf(0) }
+        var selectedItem by remember { mutableStateOf(4) }
         Scaffold(
             topBar = {
                 AppTopBar(title = "Detalle de equipo", onMenuClick = {

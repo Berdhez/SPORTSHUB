@@ -3,6 +3,7 @@ package com.ieschabas.sportshub.ui.components
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -11,18 +12,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.ieschabas.sportshub.R
+import com.ieschabas.sportshub.ui.screens.TeamStats
 
-// El data class no cambia
-data class TeamStats(
-    val teamName: String,
-    val pj: Int,
-    val g: Int,
-    val e: Int,
-    val p: Int,
-    val pts: Int,
-    val logoResId: Int
-)
+
+
 
 @Composable
 fun ClassificationRow(stats: TeamStats, rank: Int) {
@@ -43,7 +36,7 @@ fun ClassificationRow(stats: TeamStats, rank: Int) {
             ) {
 
                 Image(
-                    painter = painterResource(id = stats.logoResId),
+                    painter = painterResource(id = stats.logo),
                     contentDescription = "Logo de ${stats.teamName}",
                     modifier = Modifier.size(32.dp)
                 )

@@ -66,6 +66,7 @@ fun DashboardScreen(navController: NavController) {
             },
             bottomBar = {
                 MyNavigationBar(
+                    navController = navController,
                     selectedItem = selectedItem,
                     onItemSelected = { selectedItem = it }
                 )
@@ -84,13 +85,13 @@ fun DashboardScreen(navController: NavController) {
                     DashboardCard(
                         text = "Ligas",
                         backgroundColor = Color(0xFF4DB6AC),
-                        onClick = { },
+                        onClick = {navController.navigate("league") },
                         modifier = Modifier.weight(1f)
                     )
                     DashboardCard(
                         text = "Equipos",
                         backgroundColor = Color(0xFF4FC3F7),
-                        onClick = { },
+                        onClick = {navController.navigate("team") },
                         modifier = Modifier.weight(1f)
                     )
                 }
@@ -99,13 +100,13 @@ fun DashboardScreen(navController: NavController) {
                     DashboardCard(
                         text = "Partidos",
                         backgroundColor = Color.Green,
-                        onClick = { },
+                        onClick = {navController.navigate("matches") },
                         modifier = Modifier.weight(1f)
                     )
                     DashboardCard(
                         text = "Clasificación",
                         backgroundColor = Color(0xFFC62828),
-                        onClick = { },
+                        onClick = { navController.navigate("clasification")},
                         modifier = Modifier.weight(1f)
                     )
                 }

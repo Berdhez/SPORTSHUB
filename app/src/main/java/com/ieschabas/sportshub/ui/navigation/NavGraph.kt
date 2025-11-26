@@ -7,13 +7,17 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.ieschabas.sportshub.ui.screens.AboutScreen
+import com.ieschabas.sportshub.ui.screens.ClassificationScreen
 import com.ieschabas.sportshub.ui.screens.DashboardScreen
+import com.ieschabas.sportshub.ui.screens.LeagueDetailScreen
 import com.ieschabas.sportshub.ui.screens.LeagueListScreen
 import com.ieschabas.sportshub.ui.screens.LoginScreen
 import com.ieschabas.sportshub.ui.screens.MatchesScreen
 import com.ieschabas.sportshub.ui.screens.PlayerDetailScreen
 import com.ieschabas.sportshub.ui.screens.ProfileScreen
+import com.ieschabas.sportshub.ui.screens.RegistrationScreen
 import com.ieschabas.sportshub.ui.screens.SettingsScreen
+
 import com.ieschabas.sportshub.ui.screens.TeamDetailScreen
 import com.ieschabas.sportshub.ui.screens.TeamsListScreen
 
@@ -22,7 +26,7 @@ fun AppNavigation() {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = "teamsList"
+        startDestination = "login"
     ) {
         composable("matches") { MatchesScreen(navController) }
         composable("login") { LoginScreen() }
@@ -33,6 +37,9 @@ fun AppNavigation() {
         composable("player") { PlayerDetailScreen(navController) }
         composable("home") { DashboardScreen(navController) }
         composable("leagues") { LeagueListScreen(navController) }
+        composable("login") { LoginScreen(navController) }
+        composable("register") { RegistrationScreen(navController) }
+        composable("clasification") { ClassificationScreen(navController) }
         composable("about") { AboutScreen(navController) }
         composable ("teamDetails/{teamId}",
             arguments = listOf(navArgument("teamId"){type= NavType.StringType})
@@ -40,5 +47,9 @@ fun AppNavigation() {
             val teamId = backStackEntry.arguments?.getString("teamId")
             TeamDetailScreen(navController=navController)
         }
+        composable("league") { LeagueDetailScreen(navController) }
+
+
+
     }
 }

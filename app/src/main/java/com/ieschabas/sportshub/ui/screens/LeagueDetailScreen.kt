@@ -76,6 +76,7 @@ fun LeagueDetailScreen(navController: NavController) {
         },
         bottomBar = {
             MyNavigationBar(
+                navController=navController,
                 selectedItem = selectedItem,
                 onItemSelected = { selectedItem = it }
             )
@@ -119,14 +120,14 @@ fun LeagueDetailScreen(navController: NavController) {
 
             MyButton(
                 text = "Ver clasificación",
-                onClick = {  },
+                onClick = { navController.navigate("clasification") },
 
                 backgroundColor = AzulPetroleo
             )
             Spacer(modifier = Modifier.height(12.dp))
             MyButton(
                 text = "Ver partidos",
-                onClick = {  },
+                onClick = { navController.navigate("matches") },
                 backgroundColor = Color(0xFF7E7280)
             )
         }
