@@ -9,9 +9,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.ieschabas.sportshub.R
-import com.ieschabas.sportshub.ui.components.AppBottomBar
 import com.ieschabas.sportshub.ui.components.AppDrawer
 import com.ieschabas.sportshub.ui.components.AppTopBar
+import com.ieschabas.sportshub.ui.components.MyNavigationBar
 import com.ieschabas.sportshub.ui.components.matches.MatchCard
 import com.ieschabas.sportshub.ui.model.Match
 import kotlinx.coroutines.launch
@@ -33,7 +33,6 @@ fun MatchesScreen(navController: NavController) {
             })
         }
     ) {
-        var selectedItem by remember { mutableStateOf(2) }
 
         val matches = remember {
             (1..20).map {
@@ -60,11 +59,7 @@ fun MatchesScreen(navController: NavController) {
                 )
             },
             bottomBar = {
-                AppBottomBar(
-                    navController = navController,
-                    selectedItem = selectedItem,
-                    onItemSelected = { selectedItem = it }
-                )
+                MyNavigationBar(navController = navController)
             }
         ) { innerPadding ->
             LazyColumn(

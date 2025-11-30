@@ -13,11 +13,7 @@ import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -25,9 +21,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import com.ieschabas.sportshub.ui.components.AppDrawer
 import com.ieschabas.sportshub.ui.components.DashboardCard
-import com.ieschabas.sportshub.ui.components.MyTopAppBar
 import com.ieschabas.sportshub.ui.components.MyNavigationBar
+import com.ieschabas.sportshub.ui.components.MyTopAppBar
 import kotlinx.coroutines.launch
+
 @Preview
 @Composable
 fun DashboardScreen(navController: NavController) {
@@ -44,9 +41,6 @@ fun DashboardScreen(navController: NavController) {
             })
         }
     ) {
-
-        var selectedItem by remember { mutableStateOf(0) }
-
         Scaffold(
             topBar = {
                 MyTopAppBar(
@@ -66,9 +60,7 @@ fun DashboardScreen(navController: NavController) {
             },
             bottomBar = {
                 MyNavigationBar(
-                    navController = navController,
-                    selectedItem = selectedItem,
-                    onItemSelected = { selectedItem = it }
+                    navController = navController
                 )
             }
         ) { paddingValues ->

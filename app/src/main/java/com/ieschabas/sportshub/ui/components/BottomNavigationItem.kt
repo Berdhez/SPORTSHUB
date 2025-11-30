@@ -7,16 +7,16 @@ import androidx.compose.material.icons.filled.Star
 import androidx.compose.ui.graphics.vector.ImageVector
 
 
-data class NavigationItem(
+data class BottomNavigationItem(
     val label: String,
     val icon: ImageVector,
     val route: String
 )
 
 
-val navItems = listOf(
-    NavigationItem("Inicio", Icons.Default.Home, "home"),
-    NavigationItem("Ligas", Icons.AutoMirrored.Filled.List, "leagues"),
-    NavigationItem("Partidos", Icons.Default.Star, "matches"),
-    NavigationItem("Perfil", Icons.Default.Person, "profile")
+val bottomNavItems = listOf(
+    BottomNavigationItem("Inicio", Icons.Default.Home, "home"),
+    BottomNavigationItem("Ligas", Icons.AutoMirrored.Filled.List, "leagues"),
+    BottomNavigationItem("Partidos", Icons.Default.Star, "matches"),
+    BottomNavigationItem("Perfil", Icons.Default.Person, "profile")
 )

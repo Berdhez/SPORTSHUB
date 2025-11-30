@@ -12,11 +12,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -24,9 +20,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.ieschabas.sportshub.ui.components.AppBottomBar
 import com.ieschabas.sportshub.ui.components.AppDrawer
 import com.ieschabas.sportshub.ui.components.AppTopBar
+import com.ieschabas.sportshub.ui.components.MyNavigationBar
 import com.ieschabas.sportshub.ui.components.Player
 import com.ieschabas.sportshub.ui.components.PlayerList
 import com.ieschabas.sportshub.ui.components.TeamHeader
@@ -51,7 +47,6 @@ fun TeamDetailScreen(navController: NavController) {
             })
         }
     ) {
-        var selectedItem by remember { mutableStateOf(4) }
         Scaffold(
             topBar = {
                 AppTopBar(title = "Detalle de equipo", onMenuClick = {
@@ -61,8 +56,7 @@ fun TeamDetailScreen(navController: NavController) {
                 })
             },
             bottomBar = {
-
-                AppBottomBar( navController = navController, selectedItem = selectedItem, onItemSelected = { selectedItem = it })
+                MyNavigationBar(navController = navController)
             }
         ) { padding ->
             Column(
@@ -95,7 +89,9 @@ fun TeamDetailScreen(navController: NavController) {
                     Player(1, "Marcos Pérez", "Portero"),
                     Player(2, "Otro Jugador", "Defensa")
                 )
-                PlayerList(players = players)
+                PlayerList(players = players, onPlayerClick = {
+                    navController.navigate("player/${it.number}")
+                })
             }
         }
     }

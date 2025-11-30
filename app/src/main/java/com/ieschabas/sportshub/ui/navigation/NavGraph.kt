@@ -6,20 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.ieschabas.sportshub.ui.screens.AboutScreen
-import com.ieschabas.sportshub.ui.screens.ClassificationScreen
-import com.ieschabas.sportshub.ui.screens.DashboardScreen
-import com.ieschabas.sportshub.ui.screens.LeagueDetailScreen
-import com.ieschabas.sportshub.ui.screens.LeagueListScreen
-import com.ieschabas.sportshub.ui.screens.LoginScreen
-import com.ieschabas.sportshub.ui.screens.MatchesScreen
-import com.ieschabas.sportshub.ui.screens.PlayerDetailScreen
-import com.ieschabas.sportshub.ui.screens.ProfileScreen
-import com.ieschabas.sportshub.ui.screens.RegistrationScreen
-import com.ieschabas.sportshub.ui.screens.SettingsScreen
-
-import com.ieschabas.sportshub.ui.screens.TeamDetailScreen
-import com.ieschabas.sportshub.ui.screens.TeamsListScreen
+import com.ieschabas.sportshub.ui.screens.*
 
 @Composable
 fun AppNavigation() {
@@ -28,28 +15,30 @@ fun AppNavigation() {
         navController = navController,
         startDestination = "login"
     ) {
-        composable("matches") { MatchesScreen(navController) }
-        composable("login") { LoginScreen() }
-        composable("profile") { ProfileScreen(navController) }
-        composable("team") { TeamDetailScreen(navController) }
-        composable("teamsList") { TeamsListScreen(navController) }
-        composable("settings") { SettingsScreen(navController) }
-        composable("player") { PlayerDetailScreen(navController) }
-        composable("home") { DashboardScreen(navController) }
-        composable("leagues") { LeagueListScreen(navController) }
-        composable("login") { LoginScreen(navController) }
-        composable("register") { RegistrationScreen(navController) }
-        composable("clasification") { ClassificationScreen(navController) }
         composable("about") { AboutScreen(navController) }
-        composable ("teamDetails/{teamId}",
-            arguments = listOf(navArgument("teamId"){type= NavType.StringType})
-        ){backStackEntry ->
-            val teamId = backStackEntry.arguments?.getString("teamId")
-            TeamDetailScreen(navController=navController)
-        }
+        composable("classification") { ClassificationScreen(navController) } // Corregido
+        composable("home") { DashboardScreen(navController) }
         composable("league") { LeagueDetailScreen(navController) }
-
-
-
+        composable("leagues") { LeagueListScreen(navController) }
+        composable("login") { LoginScreen(navController) } // Duplicado eliminado
+        composable("matches") { MatchesScreen(navController) }
+        composable(
+            "player/{playerId}",
+            arguments = listOf(navArgument("playerId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            // val playerId = backStackEntry.arguments?.getString("playerId")
+            PlayerDetailScreen(navController = navController)
+        }
+        composable("profile") { ProfileScreen(navController) }
+        composable("register") { RegistrationScreen(navController) }
+        composable("settings") { SettingsScreen(navController) }
+        composable("team") { TeamDetailScreen(navController) } // Usado por Dashboard
+        composable("teamDetails/{teamId}",
+            arguments = listOf(navArgument("teamId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            // val teamId = backStackEntry.arguments?.getString("teamId")
+            TeamDetailScreen(navController = navController)
+        }
+        composable("teamsList") { TeamsListScreen(navController) }
     }
 }

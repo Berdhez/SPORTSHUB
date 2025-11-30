@@ -2,6 +2,7 @@ package com.ieschabas.sportshub.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -30,24 +31,24 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.SportsSoccer
 
 
-
 data class Player(val number: Int, val name: String, val position: String)
 
 @Composable
-fun PlayerList(players: List<Player>) {
+fun PlayerList(players: List<Player>, onPlayerClick: (Player) -> Unit) {
     Column {
         players.forEach { player ->
-            PlayerRow(player = player)
+            PlayerRow(player = player, onClick = { onPlayerClick(player) })
         }
     }
 }
 
 @Composable
-fun PlayerRow(player: Player) {
+fun PlayerRow(player: Player, onClick: () -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 4.dp),
+            .padding(vertical = 4.dp)
+            .clickable { onClick() },
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
         colors = CardDefaults.cardColors(containerColor = Color(0xFFF7F2FA))
 
@@ -82,6 +83,6 @@ fun PlayerListPreview() {
         Player(2, "Otro Jugador", "Defensa")
     )
     SPORTSHUBTheme {
-        PlayerList(players = players)
+        PlayerList(players = players, onPlayerClick = {})
     }
 }

@@ -1,8 +1,8 @@
 package com.ieschabas.sportshub.ui.components
+
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Icon
@@ -11,43 +11,52 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavController
+import androidx.navigation.compose.currentBackStackEntryAsState
 import com.ieschabas.sportshub.ui.theme.AzulPetroleo
+
 data class NavItem(val label: String, val icon: ImageVector, val route: String)
 
 @Composable
 fun MyNavigationBar(
-    navController: NavController,
-    selectedItem: Int,
-    onItemSelected: (Int) -> Unit
+    navController: NavController
 ) {
-
     val items = listOf(
         NavItem(label = "Inicio", icon = Icons.Default.Home, route = "home"),
-        NavItem(label = "Ligas", icon = Icons.AutoMirrored.Filled.List, route = "leagueList"),
+        NavItem(label = "Ligas", icon = Icons.AutoMirrored.Filled.List, route = "leagues"),
         NavItem(label = "Partidos", icon = Icons.Default.Star, route = "matches"),
         NavItem(label = "Perfil", icon = Icons.Default.Person, route = "profile")
     )
+
     NavigationBar(
         containerColor = AzulPetroleo
     ) {
-        items.forEachIndexed { index, item ->
-            NavigationBarItem(
+        val navBackStackEntry by navController.currentBackStackEntryAsState()
+        val currentRoute = navBackStackEntry?.destination?.route
 
+        items.forEach { item ->
+            NavigationBarItem(
                 icon = { Icon(item.icon, contentDescription = item.label) },
                 label = { Text(item.label) },
-                selected = selectedItem == index,
-                onClick = { onItemSelected(index)
-                navController.navigate(item.route)},
-
+                selected = currentRoute == item.route,
+                onClick = {
+                    navController.navigate(item.route) {
+                        popUpTo(navController.graph.startDestinationId) {
+                            saveState = true
+                        }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
+                },
                 colors = NavigationBarItemDefaults.colors(
                     selectedIconColor = Color.White,
                     unselectedIconColor = Color.LightGray,
                     selectedTextColor = Color.White,
                     unselectedTextColor = Color.LightGray,
-                    indicatorColor = Color.Green
+                    indicatorColor = AzulPetroleo
                 )
             )
         }

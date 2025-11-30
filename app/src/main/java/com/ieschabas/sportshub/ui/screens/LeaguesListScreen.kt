@@ -11,18 +11,15 @@ import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
 import com.ieschabas.sportshub.ui.components.AppDrawer
 import com.ieschabas.sportshub.ui.components.LeagueCard
-import com.ieschabas.sportshub.ui.components.MyTopAppBar
 import com.ieschabas.sportshub.ui.components.MyNavigationBar
+import com.ieschabas.sportshub.ui.components.MyTopAppBar
 import kotlinx.coroutines.launch
 
 @Composable
@@ -41,10 +38,6 @@ fun LeagueListScreen(navController: NavController) {
             })
         }
     ) {
-
-        var selectedItem by remember { mutableStateOf(1) }
-
-
         val leagues = remember {
             listOf(
                 "LaLiga", "Premier League", "Serie A", "Bundesliga", "Ligue 1", "Eredivisie"
@@ -72,10 +65,8 @@ fun LeagueListScreen(navController: NavController) {
                 )
             },
             bottomBar = {
-
                 MyNavigationBar(
-                    selectedItem = selectedItem,
-                    onItemSelected = { selectedItem = it }
+                    navController = navController
                 )
             }
         ) { paddingValues ->
@@ -87,7 +78,9 @@ fun LeagueListScreen(navController: NavController) {
                     LeagueCard(
                         leagueName = leagueName,
                         city = "—",
-                        onClick = { }
+                        onClick = { 
+                            navController.navigate("leagueDetail")
+                        }
                     )
                 }
             }

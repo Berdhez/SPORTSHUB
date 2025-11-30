@@ -25,7 +25,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.ieschabas.sportshub.ui.components.navItems
 import com.ieschabas.sportshub.ui.theme.AzulPetroleo
 import com.ieschabas.sportshub.ui.theme.SPORTSHUBTheme
 
@@ -82,7 +81,7 @@ fun MyNavigationBar(
     NavigationBar(
         containerColor = AzulPetroleo
     ) {
-        navItems.forEachIndexed { index, item ->
+        bottomNavItems.forEachIndexed { index, item ->
             NavigationBarItem(
                 icon = { Icon(item.icon, contentDescription = item.label) },
                 label = { Text(item.label) },
@@ -109,8 +108,8 @@ data class NavigationItem(
 
 
 val navItems = listOf(
-    NavigationItem("Inicio", Icons.Default.Home, "home"),
-    NavigationItem("Ligas", Icons.AutoMirrored.Filled.List, "leagues"),
-    NavigationItem("Partidos", Icons.Default.Star, "matches"),
-    NavigationItem("Perfil", Icons.Default.Person, "profile")
+    BottomNavigationItem("Inicio", Icons.Default.Home, "home"),
+    BottomNavigationItem("Ligas", Icons.AutoMirrored.Filled.List, "leagues"),
+    BottomNavigationItem("Partidos", Icons.Default.Star, "matches"),
+    BottomNavigationItem("Perfil", Icons.Default.Person, "profile")
 )

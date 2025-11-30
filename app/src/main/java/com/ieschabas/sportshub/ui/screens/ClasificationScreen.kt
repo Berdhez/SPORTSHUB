@@ -22,11 +22,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -57,9 +54,6 @@ fun ClassificationScreen(navController: NavController) {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
 
-
-    var selectedItem by remember { mutableStateOf(4) }
-
     val teamsData = remember {
         listOf(
             TeamStats("Equipo 1", 11, 7, 2, 2, 21, R.drawable.escudo_ies_chabas),
@@ -80,7 +74,8 @@ fun ClassificationScreen(navController: NavController) {
         drawerState = drawerState,
         drawerContent = {
 
-            AppDrawer(onCloseDrawer = {
+            AppDrawer(                    navController = navController,
+                onCloseDrawer = {
                 scope.launch {
                     drawerState.close()
                 }
@@ -110,9 +105,7 @@ fun ClassificationScreen(navController: NavController) {
             },
             bottomBar = {
                 MyNavigationBar(
-                    navController = navController,
-                    selectedItem = selectedItem,
-                    onItemSelected = { selectedItem = it }
+                    navController = navController
                 )
             }
         ) { paddingValues ->

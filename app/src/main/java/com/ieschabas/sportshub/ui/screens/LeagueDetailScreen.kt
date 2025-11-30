@@ -17,11 +17,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -33,8 +29,8 @@ import androidx.navigation.NavController
 import com.ieschabas.sportshub.R
 import com.ieschabas.sportshub.ui.components.AppDrawer
 import com.ieschabas.sportshub.ui.components.MyButton
-import com.ieschabas.sportshub.ui.components.MyTopAppBar
 import com.ieschabas.sportshub.ui.components.MyNavigationBar
+import com.ieschabas.sportshub.ui.components.MyTopAppBar
 import com.ieschabas.sportshub.ui.theme.AzulPetroleo
 import kotlinx.coroutines.launch
 
@@ -55,8 +51,6 @@ fun LeagueDetailScreen(navController: NavController) {
         }
     ) {
 
-    var selectedItem by remember { mutableStateOf(4) }
-
     Scaffold(
         topBar = {
             MyTopAppBar(
@@ -76,9 +70,7 @@ fun LeagueDetailScreen(navController: NavController) {
         },
         bottomBar = {
             MyNavigationBar(
-                navController=navController,
-                selectedItem = selectedItem,
-                onItemSelected = { selectedItem = it }
+                navController=navController
             )
         }
     ) { paddingValues ->
@@ -120,7 +112,7 @@ fun LeagueDetailScreen(navController: NavController) {
 
             MyButton(
                 text = "Ver clasificación",
-                onClick = { navController.navigate("clasification") },
+                onClick = { navController.navigate("classification") },
 
                 backgroundColor = AzulPetroleo
             )
