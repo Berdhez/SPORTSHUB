@@ -79,7 +79,7 @@ fun LeagueListScreen(navController: NavController) {
                         leagueName = leagueName,
                         city = "—",
                         onClick = { 
-                            navController.navigate("leagueDetail")
+                            navController.navigate("classification")
                         }
                     )
                 }

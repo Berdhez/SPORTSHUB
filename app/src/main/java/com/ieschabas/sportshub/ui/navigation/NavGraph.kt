@@ -16,11 +16,11 @@ fun AppNavigation() {
         startDestination = "login"
     ) {
         composable("about") { AboutScreen(navController) }
-        composable("classification") { ClassificationScreen(navController) } // Corregido
+        composable("classification") { ClassificationScreen(navController) }
         composable("home") { DashboardScreen(navController) }
         composable("league") { LeagueDetailScreen(navController) }
         composable("leagues") { LeagueListScreen(navController) }
-        composable("login") { LoginScreen(navController) } // Duplicado eliminado
+        composable("login") { LoginScreen(navController) }
         composable("matches") { MatchesScreen(navController) }
         composable(
             "player/{playerId}",

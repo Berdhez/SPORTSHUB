@@ -98,7 +98,7 @@ fun DashboardScreen(navController: NavController) {
                     DashboardCard(
                         text = "Clasificación",
                         backgroundColor = Color(0xFFC62828),
-                        onClick = { navController.navigate("clasification")},
+                        onClick = {navController.navigate("classification")},
                         modifier = Modifier.weight(1f)
                     )
                 }
