@@ -25,7 +25,7 @@ import com.ieschabas.sportshub.ui.components.MyNavigationBar
 import com.ieschabas.sportshub.ui.components.MyTopAppBar
 import kotlinx.coroutines.launch
 
-@Preview
+
 @Composable
 fun DashboardScreen(navController: NavController) {
     val scope = rememberCoroutineScope()
