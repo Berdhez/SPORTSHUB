@@ -15,4 +15,31 @@ abstract class RepositoryModule {
     abstract fun bindClassificationRepository(
         impl: ClassificationRepositoryImpl
     ): ClassificationRepository
+
+//    @Binds
+//    abstract fun bindUserRepository(
+//        impl: UserRepositoryImpl
+//    ): UserRepository
+//
+//    @Binds
+//    abstract fun bindClubRepository(
+//        impl: ClubRepositoryImpl
+//    ): ClubRepository
+//
+//    @Binds
+//    abstract fun bindTeamRepository(
+//        impl: TeamRepositoryImpl
+//    ): TeamRepository
+//
+//    @Binds
+//    abstract fun bindPlayerRepository(
+//        impl: PlayerRepositoryImpl
+//    ): PlayerRepository
+//
+//    @Binds
+//    abstract fun bindLeagueRepository(
+//        impl: LeagueRepositoryImpl
+//    ): LeagueRepository
+
+
 }
