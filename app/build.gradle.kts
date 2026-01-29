@@ -1,19 +1,25 @@
+import org.gradle.kotlin.dsl.support.kotlinCompilerOptions
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
+
 }
 
 android {
     namespace = "com.ieschabas.sportshub"
-    compileSdk = 36
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.ieschabas.SPORTSHUB"
-        minSdk = 25
-        targetSdk = 36
+        minSdk = 24
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
+
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -64,5 +70,9 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     implementation(libs.androidx.compose.material.icons.extended)
+    implementation(libs.hilt.android)
+    implementation(libs.hilt.android)
+    add("ksp", libs.hilt.compiler.get())
+
 
 }
