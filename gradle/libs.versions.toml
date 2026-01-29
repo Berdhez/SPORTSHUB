@@ -19,6 +19,7 @@ roomCommonJvm = "2.8.4"
 hilt = "2.58"
 ksp = "2.3.3"
 roomKtx = "2.8.4"
+identityDoctypesJvm = "202411.1"
 
 
 [libraries]
@@ -44,6 +45,7 @@ androidx-room-common-jvm = { group = "androidx.room", name = "room-common-jvm", 
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomKtx" }
+identity-doctypes-jvm = { group = "com.android.identity", name = "identity-doctypes-jvm", version.ref = "identityDoctypesJvm" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
