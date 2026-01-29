@@ -61,6 +61,7 @@ dependencies {
     implementation(libs.androidx.compose.material.icons.extended.android)
     implementation(libs.androidx.compose.runtime)
     implementation(libs.androidx.room.common.jvm)
+    implementation(libs.androidx.room.ktx)
 //    implementation(libs.androidx.navigation.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
