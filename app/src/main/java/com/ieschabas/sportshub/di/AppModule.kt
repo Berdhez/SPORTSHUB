@@ -2,7 +2,14 @@ package com.ieschabas.sportshub.di
 
 import android.content.Context
 import androidx.room.Room
+import com.ieschabas.sportshub.data.local.SportsHubDatabase
 import com.ieschabas.sportshub.data.local.dao.ClassificationDao
+import com.ieschabas.sportshub.data.local.dao.ClubDao
+import com.ieschabas.sportshub.data.local.dao.LeagueDao
+import com.ieschabas.sportshub.data.local.dao.MatchDao
+import com.ieschabas.sportshub.data.local.dao.PlayerDao
+import com.ieschabas.sportshub.data.local.dao.TeamDao
+import com.ieschabas.sportshub.data.local.dao.UserDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,13 +30,13 @@ object AppModule {
     @Singleton
     fun provideDb(
         @ApplicationContext context: Context
-    ): AppDatabase {
+    ): SportsHubDatabase {
 
-        lateinit var instance: AppDatabase
+        lateinit var instance: SportsHubDatabase
 
         instance = Room.databaseBuilder(
             context,
-            AppDatabase::class.java,
+            SportsHubDatabase::class.java,
             "sportshub.db"
         )
             .addCallback(
@@ -44,28 +51,28 @@ object AppModule {
     }
 
     @Provides
-    fun provideLeagueDao(db: AppDatabase): LeagueDao = db.leagueDao()
+    fun provideLeagueDao(db: SportsHubDatabase): LeagueDao = db.leagueDao()
 
     @Provides
-    fun provideTeamDao(db: AppDatabase): TeamDao = db.teamDao()
+    fun provideTeamDao(db: SportsHubDatabase): TeamDao = db.teamDao()
 
     @Provides
-    fun provideUserDao(db: AppDatabase): UserDao = db.userDao()
-
-
-    @Provides
-    fun provideMatchDao(db: AppDatabase): MatchDao = db.matchDao()
+    fun provideUserDao(db: SportsHubDatabase): UserDao = db.userDao()
 
 
     @Provides
-    fun providePlayerDao(db: AppDatabase): PlayerDao = db.playerDao()
-
-    @Provides
-    fun provideClubDao(db: AppDatabase): ClubDao = db.clubDao()
+    fun provideMatchDao(db: SportsHubDatabase): MatchDao = db.matchDao()
 
 
     @Provides
-    fun provideClassificationDao(db: AppDatabase): ClassificationDao = db.classificationDao()
+    fun providePlayerDao(db: SportsHubDatabase): PlayerDao = db.playerDao()
+
+    @Provides
+    fun provideClubDao(db: SportsHubDatabase): ClubDao = db.clubDao()
+
+
+    @Provides
+    fun provideClassificationDao(db: SportsHubDatabase): ClassificationDao = db.classificationDao()
 
 }
 
