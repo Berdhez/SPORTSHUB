@@ -11,7 +11,7 @@ plugins {
 
 android {
     namespace = "com.ieschabas.sportshub"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.ieschabas.SPORTSHUB"
@@ -63,6 +63,7 @@ dependencies {
     implementation(libs.androidx.room.common.jvm)
     implementation(libs.androidx.room.ktx)
     implementation(libs.identity.doctypes.jvm)
+    implementation(libs.play.services.games)
 //    implementation(libs.androidx.navigation.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

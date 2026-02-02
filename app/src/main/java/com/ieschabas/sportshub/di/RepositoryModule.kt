@@ -1,7 +1,9 @@
 package com.ieschabas.sportshub.di
 
 import com.ieschabas.sportshub.data.repository.ClassificationRepositoryImpl
+import com.ieschabas.sportshub.data.repository.UserRepositoryImpl
 import com.ieschabas.sportshub.domain.repository.ClassificationRepository
+import com.ieschabas.sportshub.domain.repository.UserRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -16,10 +18,10 @@ abstract class RepositoryModule {
         impl: ClassificationRepositoryImpl
     ): ClassificationRepository
 
-//    @Binds
-//    abstract fun bindUserRepository(
-//        impl: UserRepositoryImpl
-//    ): UserRepository
+    @Binds
+    abstract fun bindUserRepository(
+        impl: UserRepositoryImpl
+    ): UserRepository
 //
 //    @Binds
 //    abstract fun bindClubRepository(
