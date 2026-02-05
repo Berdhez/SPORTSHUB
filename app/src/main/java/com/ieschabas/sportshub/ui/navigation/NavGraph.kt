@@ -29,6 +29,7 @@ fun AppNavigation() {
             // val playerId = backStackEntry.arguments?.getString("playerId")
             PlayerDetailScreen(navController = navController)
         }
+
         composable("profile") { ProfileScreen(navController) }
         composable("register") { RegistrationScreen(navController) }
         composable("settings") { SettingsScreen(navController) }
@@ -40,5 +41,9 @@ fun AppNavigation() {
             TeamDetailScreen(navController = navController)
         }
         composable("teamsList") { TeamsListScreen(navController) }
+
+        composable("classification/{leagueId}",
+          arguments = listOf(navArgument("leagueId"){type = NavType.StringType})
+        ){ClassificationScreen(navController)}
     }
 }

@@ -16,6 +16,7 @@ kotlinxSerializationJson = "2.2.21"
 navigationComposeVersion = "2.9.6"
 runtime = "1.10.0"
 roomCommonJvm = "2.8.4"
+android = "2.57.2"
 hilt = "2.58"
 ksp = "2.3.3"
 roomKtx = "2.8.4"
@@ -49,6 +50,8 @@ androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = 
 identity-doctypes-jvm = { group = "com.android.identity", name = "identity-doctypes-jvm", version.ref = "identityDoctypesJvm" }
 play-services-games = { group = "com.google.android.gms", name = "play-services-games", version.ref = "playServicesGames" }
 
+hilt-navigation-compose = "androidx.hilt:hilt-navigation-compose:1.2.0"
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
@@ -56,3 +59,5 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 kotlin-serialization-json = {id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinxSerializationJson"}
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+
+
