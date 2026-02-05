@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.ieschabas.sportshub.ui.model.Match
+import com.ieschabas.sportshub.ui.components.Match
 
 @Composable
 fun MatchCard(match: Match) {

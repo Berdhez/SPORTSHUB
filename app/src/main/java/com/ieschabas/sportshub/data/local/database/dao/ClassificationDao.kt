@@ -1,4 +1,4 @@
-package com.ieschabas.sportshub.data.local.dao
+package com.ieschabas.sportshub.data.local.database.dao
 
 import androidx.room.Dao
 import androidx.room.Insert

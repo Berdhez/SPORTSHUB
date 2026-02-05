@@ -10,10 +10,10 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface MatchDao {
 
-    @Query("SELECT * FROM match")
+    @Query("SELECT * FROM matches")
     fun observeMatches(): Flow<List<MatchEntity>>
 
-    @Query("SELECT * FROM match WHERE id = :id LIMIT 1")
+    @Query("SELECT * FROM matches WHERE id = :id LIMIT 1")
     suspend fun getMatch(id: String): MatchEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

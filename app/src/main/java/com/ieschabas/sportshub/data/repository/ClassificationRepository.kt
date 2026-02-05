@@ -1,6 +1,6 @@
 package com.ieschabas.sportshub.data.repository
 
-import com.ieschabas.sportshub.data.local.dao.ClassificationDao
+import com.ieschabas.sportshub.data.local.database.dao.ClassificationDao
 import com.ieschabas.sportshub.data.local.mapper.toDomain
 import com.ieschabas.sportshub.domain.model.Classification
 import com.ieschabas.sportshub.domain.repository.ClassificationRepository
@@ -20,3 +20,4 @@ class ClassificationRepositoryImpl @Inject constructor(
     override suspend fun getClassification(id: String): Classification? =
         classificationDao.getClassification(id)?.toDomain()
 }
+
