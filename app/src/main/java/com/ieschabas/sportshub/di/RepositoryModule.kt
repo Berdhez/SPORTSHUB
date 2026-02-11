@@ -1,7 +1,6 @@
 package com.ieschabas.sportshub.di
 
-import com.google.android.datatransport.runtime.dagger.Binds
-import com.google.android.datatransport.runtime.dagger.Module
+
 import com.ieschabas.sportshub.data.repository.*
 import com.ieschabas.sportshub.domain.repository.*
 import dagger.Binds

@@ -2,10 +2,8 @@ package com.ieschabas.sportshub.di
 
 import android.content.Context
 import androidx.room.Room
-import com.google.android.datatransport.runtime.dagger.Module
-import com.google.android.datatransport.runtime.dagger.Provides
 import com.ieschabas.sportshub.data.local.SportsHubDatabase
-import com.ieschabas.sportshub.data.local.database.dao.ClassificationDao
+import com.ieschabas.sportshub.data.local.dao.ClassificationDao
 import com.ieschabas.sportshub.data.local.database.dao.MatchDao
 import com.ieschabas.sportshub.data.local.database.dao.PlayerDao
 import com.ieschabas.sportshub.data.local.database.dao.TeamDao

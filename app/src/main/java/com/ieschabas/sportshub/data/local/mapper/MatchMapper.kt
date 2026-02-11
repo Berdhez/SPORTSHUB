@@ -2,7 +2,6 @@ package com.ieschabas.sportshub.data.local.mapper
 
 import com.ieschabas.sportshub.data.local.entities.MatchEntity
 import com.ieschabas.sportshub.domain.model.Match
-import com.ieschabas.sportshub.ui.model.Match
 
 fun MatchEntity.toDomain(): Match =
     Match(
