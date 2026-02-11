@@ -7,6 +7,11 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.ieschabas.sportshub.ui.screens.*
+import com.ieschabas.sportshub.ui.screens.classification.ClassificationScreen
+import com.ieschabas.sportshub.ui.screens.match.MatchesScreen
+import com.ieschabas.sportshub.ui.screens.player.PlayerDetailScreen
+import com.ieschabas.sportshub.ui.screens.team.TeamDetailScreen
+import com.ieschabas.sportshub.ui.screens.user.ProfileScreen
 
 @Composable
 fun AppNavigation() {
