@@ -1,10 +1,9 @@
-package com.ieschabas.sportshub.data.local.database.dao
+package com.ieschabas.sportshub.data.local.dao
 
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Upsert
 import com.ieschabas.sportshub.data.local.entities.UserEntity
-import com.ieschabas.sportshub.domain.model.User
 import kotlinx.coroutines.flow.Flow
 
 @Dao

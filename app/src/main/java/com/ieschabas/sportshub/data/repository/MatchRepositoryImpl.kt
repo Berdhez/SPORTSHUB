@@ -1,6 +1,6 @@
 package com.ieschabas.sportshub.data.repository
 
-import com.ieschabas.sportshub.data.local.database.dao.MatchDao
+import com.ieschabas.sportshub.data.local.dao.MatchDao
 import com.ieschabas.sportshub.data.local.mapper.toDomain
 import com.ieschabas.sportshub.domain.model.Match
 import com.ieschabas.sportshub.domain.repository.MatchRepository

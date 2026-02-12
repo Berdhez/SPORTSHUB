@@ -1,3 +1,5 @@
+package com.ieschabas.sportshub.ui.screens.match
+
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ieschabas.sportshub.domain.model.Match

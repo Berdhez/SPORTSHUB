@@ -4,10 +4,10 @@ import android.content.Context
 import androidx.room.Room
 import com.ieschabas.sportshub.data.local.SportsHubDatabase
 import com.ieschabas.sportshub.data.local.dao.ClassificationDao
-import com.ieschabas.sportshub.data.local.database.dao.MatchDao
-import com.ieschabas.sportshub.data.local.database.dao.PlayerDao
-import com.ieschabas.sportshub.data.local.database.dao.TeamDao
-import com.ieschabas.sportshub.data.local.database.dao.UserDao
+import com.ieschabas.sportshub.data.local.dao.MatchDao
+import com.ieschabas.sportshub.data.local.dao.PlayerDao
+import com.ieschabas.sportshub.data.local.dao.TeamDao
+import com.ieschabas.sportshub.data.local.dao.UserDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

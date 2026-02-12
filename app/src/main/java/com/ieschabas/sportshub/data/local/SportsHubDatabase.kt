@@ -3,10 +3,10 @@ package com.ieschabas.sportshub.data.local
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.ieschabas.sportshub.data.local.dao.ClassificationDao
-import com.ieschabas.sportshub.data.local.database.dao.MatchDao
-import com.ieschabas.sportshub.data.local.database.dao.PlayerDao
-import com.ieschabas.sportshub.data.local.database.dao.TeamDao
-import com.ieschabas.sportshub.data.local.database.dao.UserDao
+import com.ieschabas.sportshub.data.local.dao.MatchDao
+import com.ieschabas.sportshub.data.local.dao.PlayerDao
+import com.ieschabas.sportshub.data.local.dao.TeamDao
+import com.ieschabas.sportshub.data.local.dao.UserDao
 import com.ieschabas.sportshub.data.local.entities.ClassificationEntity
 import com.ieschabas.sportshub.data.local.entities.MatchEntity
 import com.ieschabas.sportshub.data.local.entities.PlayerEntity

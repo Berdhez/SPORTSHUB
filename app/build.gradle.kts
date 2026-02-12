@@ -1,14 +1,17 @@
+import org.gradle.kotlin.dsl.support.kotlinCompilerOptions
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.hilt.android)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
+
 }
 
 android {
     namespace = "com.ieschabas.sportshub"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.ieschabas.SPORTSHUB"
@@ -16,6 +19,7 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
+
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -42,6 +46,7 @@ android {
 }
 
 dependencies {
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -52,11 +57,13 @@ dependencies {
     implementation(libs.constraint.layout)
     implementation(libs.androidx.compose.material3)
     implementation("androidx.navigation:navigation-compose:2.8.0-alpha08")
+//    implementation(libs.kotlinx.serialization.json)
     implementation(libs.androidx.compose.material.icons.extended.android)
+    implementation(libs.androidx.compose.runtime)
     implementation(libs.androidx.room.common.jvm)
-    implementation(libs.transport.runtime)
     implementation(libs.androidx.room.ktx)
-
+    implementation(libs.identity.doctypes.jvm)
+//    implementation(libs.androidx.navigation.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -66,5 +73,8 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     implementation(libs.androidx.compose.material.icons.extended)
     implementation(libs.hilt.android)
-    ksp(libs.hilt.compiler)
+    implementation(libs.hilt.android)
+    add("ksp", libs.hilt.compiler.get())
+
+
 }
