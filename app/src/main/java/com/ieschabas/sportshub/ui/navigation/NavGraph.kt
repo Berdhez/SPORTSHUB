@@ -26,7 +26,7 @@ fun AppNavigation() {
             "player/{playerId}",
             arguments = listOf(navArgument("playerId") { type = NavType.StringType })
         ) { backStackEntry ->
-            // val playerId = backStackEntry.arguments?.getString("playerId")
+             val playerId = backStackEntry.arguments?.getString("playerId")
             PlayerDetailScreen(navController = navController)
         }
 
@@ -37,7 +37,7 @@ fun AppNavigation() {
         composable("teamDetails/{teamId}",
             arguments = listOf(navArgument("teamId") { type = NavType.StringType })
         ) { backStackEntry ->
-            // val teamId = backStackEntry.arguments?.getString("teamId")
+             val teamId = backStackEntry.arguments?.getString("teamId")
             TeamDetailScreen(navController = navController)
         }
         composable("teamsList") { TeamsListScreen(navController) }

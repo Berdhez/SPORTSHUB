@@ -6,4 +6,5 @@ import kotlinx.coroutines.flow.Flow
 interface ClassificationRepository {
     fun observeClassifications(): Flow<List<Classification>>
     suspend fun getClassification(id: String): Classification?
+
 }
