@@ -144,6 +144,7 @@ object SampleData {
             ClassificationEntity(
                 id = "c_team_rm",
                 teamId = "team_rm",
+                leagueId = "laLiga",
                 clubId = "club_rm",
                 gamesPlayed = 10,
                 victories = 8,
@@ -159,7 +160,8 @@ object SampleData {
                 victories = 7,
                 lost = 2,
                 ties = 1,
-                totalPoints = 22
+                totalPoints = 22,
+                leagueId = "laLiga",
             ),
             ClassificationEntity(
                 id = "c_team_val",
@@ -169,7 +171,8 @@ object SampleData {
                 victories = 6,
                 lost = 2,
                 ties = 2,
-                totalPoints = 20
+                totalPoints = 20,
+                leagueId = "laLiga",
             ),
             ClassificationEntity(
                 id = "c_team_ars",
@@ -179,7 +182,8 @@ object SampleData {
                 victories = 7,
                 lost = 1,
                 ties = 2,
-                totalPoints = 23
+                totalPoints = 23,
+                leagueId = "laLiga",
             ),
             ClassificationEntity(
                 id = "c_team_mci",
@@ -189,7 +193,8 @@ object SampleData {
                 victories = 6,
                 lost = 2,
                 ties = 2,
-                totalPoints = 20
+                totalPoints = 20,
+                leagueId = "laLiga",
             )
         )
 

@@ -7,6 +7,7 @@ import androidx.room.PrimaryKey
 data class ClassificationEntity(
     @PrimaryKey val id: String,
     val teamId: String,
+    val leagueId: String,
     val clubId: String,
     val gamesPlayed: Int,
     val victories: Int,

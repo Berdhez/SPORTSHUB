@@ -9,4 +9,5 @@ data class Classification(
     val lost: Int,
     val ties: Int,
     val totalPoints: Int,
+    val leagueId: String,
 )

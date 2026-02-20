@@ -15,8 +15,17 @@ class ClassificationRepositoryImpl @Inject constructor(
 
     override fun observeClassifications(): Flow<List<Classification>> =
         classificationDao.observeClassifications()
-            .map { list -> list.map { it.toDomain() } }
+            .map { entities -> entities.map { it.toDomain() } }
+
+    override fun observeClassificationsByLeague(leagueId: String): Flow<List<Classification>> =
+        classificationDao.observeClassificationsByLeague(leagueId)
+            .map { entities -> entities.map { it.toDomain() } }
 
     override suspend fun getClassification(id: String): Classification? =
         classificationDao.getClassification(id)?.toDomain()
+
+    override fun observeClassificationForTeam(teamId: String): Flow<Classification?> =
+        classificationDao.observeByTeam(teamId)
+            .map { it?.toDomain() }
+
 }

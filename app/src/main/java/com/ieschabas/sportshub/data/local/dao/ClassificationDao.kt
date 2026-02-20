@@ -7,15 +7,23 @@ import androidx.room.Query
 import com.ieschabas.sportshub.data.local.entities.ClassificationEntity
 import kotlinx.coroutines.flow.Flow
 
+
 @Dao
 interface ClassificationDao {
 
-    @Query("SELECT * FROM classification ORDER BY totalPoints DESC")
+    @Query("SELECT * FROM classifications ORDER BY totalPoints DESC")
     fun observeClassifications(): Flow<List<ClassificationEntity>>
 
-    @Query("SELECT * FROM classification WHERE id = :id LIMIT 1")
+    @Query("SELECT * FROM classifications WHERE leagueId = :leagueId ORDER BY totalPoints DESC")
+    fun observeClassificationsByLeague(leagueId: String): Flow<List<ClassificationEntity>>
+
+    @Query("SELECT * FROM classifications WHERE id = :id LIMIT 1")
     suspend fun getClassification(id: String): ClassificationEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsertAll(items: List<ClassificationEntity>)
+
+    @Query("SELECT * FROM classifications WHERE teamId = :teamId LIMIT 1")
+    fun observeByTeam(teamId: String): Flow<ClassificationEntity?>
+
 }

@@ -12,7 +12,8 @@ fun ClassificationEntity.toDomain(): Classification =
         victories = victories,
         lost = lost,
         ties = ties,
-        totalPoints = totalPoints
+        totalPoints = totalPoints,
+        leagueId = leagueId,
     )
 
 fun Classification.toEntity(): ClassificationEntity =
@@ -24,5 +25,6 @@ fun Classification.toEntity(): ClassificationEntity =
         victories = victories,
         lost = lost,
         ties = ties,
-        totalPoints = totalPoints
+        totalPoints = totalPoints,
+        leagueId = leagueId,
     )
