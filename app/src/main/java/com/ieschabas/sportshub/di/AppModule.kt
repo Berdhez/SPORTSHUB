@@ -50,8 +50,8 @@ object AppModule {
         return instance
     }
 
-//    @Provides
-//    fun provideLeagueDao(db: SportsHubDatabase): LeagueDao = db.leagueDao()
+    @Provides
+    fun provideLeagueDao(db: SportsHubDatabase): LeagueDao = db.leagueDao()
 //
 //    @Provides
 //    fun provideTeamDao(db: SportsHubDatabase): TeamDao = db.teamDao()
@@ -67,8 +67,8 @@ object AppModule {
 //    @Provides
 //    fun providePlayerDao(db: SportsHubDatabase): PlayerDao = db.playerDao()
 //
-//    @Provides
-//    fun provideClubDao(db: SportsHubDatabase): ClubDao = db.clubDao()
+    @Provides
+    fun provideClubDao(db: SportsHubDatabase): ClubDao = db.clubDao()
 
 
     @Provides

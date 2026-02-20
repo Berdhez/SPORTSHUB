@@ -1,8 +1,12 @@
 package com.ieschabas.sportshub.di
 
 import com.ieschabas.sportshub.data.repository.ClassificationRepositoryImpl
+import com.ieschabas.sportshub.data.repository.ClubRepositoryImpl
+import com.ieschabas.sportshub.data.repository.LeagueRepositoryImpl
 import com.ieschabas.sportshub.data.repository.UserRepositoryImpl
 import com.ieschabas.sportshub.domain.repository.ClassificationRepository
+import com.ieschabas.sportshub.domain.repository.ClubRepository
+import com.ieschabas.sportshub.domain.repository.LeagueRepository
 import com.ieschabas.sportshub.domain.repository.UserRepository
 import dagger.Binds
 import dagger.Module
@@ -22,11 +26,11 @@ abstract class RepositoryModule {
     abstract fun bindUserRepository(
         impl: UserRepositoryImpl
     ): UserRepository
-//
-//    @Binds
-//    abstract fun bindClubRepository(
-//        impl: ClubRepositoryImpl
-//    ): ClubRepository
+
+    @Binds
+    abstract fun bindClubRepository(
+        impl: ClubRepositoryImpl
+    ): ClubRepository
 //
 //    @Binds
 //    abstract fun bindTeamRepository(
@@ -38,10 +42,10 @@ abstract class RepositoryModule {
 //        impl: PlayerRepositoryImpl
 //    ): PlayerRepository
 //
-//    @Binds
-//    abstract fun bindLeagueRepository(
-//        impl: LeagueRepositoryImpl
-//    ): LeagueRepository
+    @Binds
+    abstract fun bindLeagueRepository(
+        impl: LeagueRepositoryImpl
+    ): LeagueRepository
 
 
 }

@@ -19,9 +19,9 @@ class AppDatabaseCallback(
             val database = dbProvider()
             val payload = com.ieschabas.sportshub.data.local.SampleData.create()
 
-//            database.clubDao().insertAlL(payload.clubs)
+
             database.classificationDao().upsertAll(payload.classifications)
-//            database.leagueDao().insertAll(payload.leagues)
+            database.leagueDao().upsertAll(payload.leagues)
 //            database.teamDao().insertAll(payload.teams)
 //            database.playerDao().insertAll(payload.players)
 //            database.matchDao().insertAll(payload.matches)

@@ -12,14 +12,11 @@ import kotlinx.coroutines.flow.Flow
 interface LeagueDao {
 
     @Query("SELECT * FROM league")
-    fun getAllLeagues(): Flow<List<LeagueEntity>>
+    fun observeLeagues(): Flow<List<LeagueEntity>>
 
-    @Query("SELECT * FROM league WHERE id = :leagueId")
-    suspend fun getLeagueById(leagueId: Int): LeagueEntity?
+    @Query("SELECT * FROM league WHERE id = :id LIMIT 1")
+    suspend fun getLeagueById(id: String): LeagueEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertLeagues(leagues: List<LeagueEntity>): List<Long>
-
-    @Update
-    suspend fun updateLeague(league: LeagueEntity): Int
+    suspend fun upsertAll(items: List<LeagueEntity>)
 }

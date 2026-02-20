@@ -9,6 +9,7 @@ interface ClassificationRepository {
 
     fun observeClassificationsByLeague(leagueId: String): Flow<List<Classification>>
 
+
     fun observeClassificationForTeam(teamId: String): Flow<Classification?>
 
 }
