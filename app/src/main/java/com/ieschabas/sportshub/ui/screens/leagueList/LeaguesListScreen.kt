@@ -11,10 +11,13 @@ import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.ieschabas.sportshub.ui.components.AppDrawer
 import com.ieschabas.sportshub.ui.components.LeagueCard
@@ -23,9 +26,13 @@ import com.ieschabas.sportshub.ui.components.MyTopAppBar
 import kotlinx.coroutines.launch
 
 @Composable
-fun LeagueListScreen(navController: NavController) {
+fun LeagueListScreen(navController: NavController,
+                     viewModel: LeagueListViewModel = hiltViewModel()) {
+
     val scope = rememberCoroutineScope()
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+    val leagues by viewModel.league.collectAsState()
+
     ModalNavigationDrawer(
         drawerState = drawerState,
         drawerContent = {
@@ -38,11 +45,7 @@ fun LeagueListScreen(navController: NavController) {
             })
         }
     ) {
-        val leagues = remember {
-            listOf(
-                "LaLiga", "Premier League", "Serie A", "Bundesliga", "Ligue 1", "Eredivisie"
-            )
-        }
+
 
         Scaffold(
             topBar = {
@@ -76,8 +79,8 @@ fun LeagueListScreen(navController: NavController) {
             ) {
                 items(leagues) { leagueName ->
                     LeagueCard(
-                        leagueName = leagueName,
-                        city = "—",
+                        leagueName = leagueName.name,
+                        city = leagueName.country,
                         onClick = { 
                             navController.navigate("classification")
                         }
