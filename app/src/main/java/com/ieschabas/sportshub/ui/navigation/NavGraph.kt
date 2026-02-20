@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.ieschabas.sportshub.ui.screens.*
+import com.ieschabas.sportshub.ui.screens.classification.ClassificationScreen
 
 @Composable
 fun AppNavigation() {
@@ -44,6 +45,6 @@ fun AppNavigation() {
 
         composable("classification/{leagueId}",
           arguments = listOf(navArgument("leagueId"){type = NavType.StringType})
-        ){ClassificationScreen(navController)}
+        ){ ClassificationScreen(navController) }
     }
 }
