@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ClubDao {
+
     @Query("SELECT * FROM club ORDER BY name ASC")
     fun getAllClubs(): Flow<List<ClubEntity>>
 
@@ -17,10 +18,10 @@ interface ClubDao {
     suspend fun getClubById(clubId: Int): ClubEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(clubs: List<ClubEntity>)
+    suspend fun insertAll(clubs: List<ClubEntity>): List<Long>
 
     @Delete
-    suspend fun deleteClub(club: ClubEntity)
+    suspend fun deleteClub(club: ClubEntity): Int
 
     @Query("SELECT COUNT(*) FROM club")
     suspend fun getClubCount(): Int

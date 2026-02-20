@@ -8,9 +8,9 @@ import androidx.room.Query
 import com.ieschabas.sportshub.data.local.entities.TeamEntity
 import kotlinx.coroutines.flow.Flow
 
-
 @Dao
 interface TeamDao {
+
     @Query("SELECT * FROM team ORDER BY name ASC")
     fun getAllTeams(): Flow<List<TeamEntity>>
 
@@ -18,8 +18,8 @@ interface TeamDao {
     suspend fun getTeamById(teamId: Int): TeamEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertTeams(teams: List<TeamEntity>)
+    suspend fun insertTeams(teams: List<TeamEntity>): List<Long>
 
     @Delete
-    suspend fun deleteTeam(team: TeamEntity)
+    suspend fun deleteTeam(team: TeamEntity): Int
 }

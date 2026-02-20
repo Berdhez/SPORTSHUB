@@ -10,16 +10,16 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface MatchDao {
+
     @Query("SELECT * FROM `match` ORDER BY dateUtc ASC")
     fun getAllMatches(): Flow<List<MatchEntity>>
-
 
     @Query("SELECT * FROM `match` WHERE dateUtc = :jornada")
     fun getMatchesByJornada(jornada: Int): Flow<List<MatchEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertMatches(matches: List<MatchEntity>)
+    suspend fun insertMatches(matches: List<MatchEntity>): List<Long>
 
     @Update
-    suspend fun updateMatchResult(match: MatchEntity)
+    suspend fun updateMatchResult(match: MatchEntity): Int
 }

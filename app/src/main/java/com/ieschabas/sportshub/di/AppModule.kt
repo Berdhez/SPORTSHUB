@@ -50,25 +50,25 @@ object AppModule {
         return instance
     }
 
-    @Provides
-    fun provideLeagueDao(db: SportsHubDatabase): LeagueDao = db.leagueDao()
-
-    @Provides
-    fun provideTeamDao(db: SportsHubDatabase): TeamDao = db.teamDao()
-
-    @Provides
-    fun provideUserDao(db: SportsHubDatabase): UserDao = db.userDao()
-
-
-    @Provides
-    fun provideMatchDao(db: SportsHubDatabase): MatchDao = db.matchDao()
-
-
-    @Provides
-    fun providePlayerDao(db: SportsHubDatabase): PlayerDao = db.playerDao()
-
-    @Provides
-    fun provideClubDao(db: SportsHubDatabase): ClubDao = db.clubDao()
+//    @Provides
+//    fun provideLeagueDao(db: SportsHubDatabase): LeagueDao = db.leagueDao()
+//
+//    @Provides
+//    fun provideTeamDao(db: SportsHubDatabase): TeamDao = db.teamDao()
+//
+//    @Provides
+//    fun provideUserDao(db: SportsHubDatabase): UserDao = db.userDao()
+//
+//
+//    @Provides
+//    fun provideMatchDao(db: SportsHubDatabase): MatchDao = db.matchDao()
+//
+//
+//    @Provides
+//    fun providePlayerDao(db: SportsHubDatabase): PlayerDao = db.playerDao()
+//
+//    @Provides
+//    fun provideClubDao(db: SportsHubDatabase): ClubDao = db.clubDao()
 
 
     @Provides

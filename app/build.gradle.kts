@@ -1,4 +1,4 @@
-import org.gradle.kotlin.dsl.support.kotlinCompilerOptions
+
 
 plugins {
     alias(libs.plugins.android.application)
@@ -6,7 +6,6 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
-
 }
 
 android {
@@ -14,9 +13,9 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.ieschabas.SPORTSHUB"
+        applicationId = "com.ieschabas.sportshub"
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
@@ -37,6 +36,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
+    }
     kotlinOptions {
         jvmTarget = "11"
     }
@@ -47,7 +49,7 @@ android {
 
 dependencies {
 
-    implementation(libs.androidx.core.ktx)
+
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
@@ -60,7 +62,7 @@ dependencies {
 //    implementation(libs.kotlinx.serialization.json)
     implementation(libs.androidx.compose.material.icons.extended.android)
     implementation(libs.androidx.compose.runtime)
-    implementation(libs.androidx.room.common.jvm)
+
     implementation(libs.androidx.room.ktx)
     implementation(libs.identity.doctypes.jvm)
     implementation(libs.play.services.games)
@@ -74,8 +76,11 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     implementation(libs.androidx.compose.material.icons.extended)
     implementation(libs.hilt.android)
-    implementation(libs.hilt.android)
+
     ksp(libs.hilt.compiler)
     implementation(libs.hilt.navigation.compose)
+    implementation("androidx.room:room-runtime:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
+    ksp("androidx.room:room-compiler:2.6.1")
 
 }

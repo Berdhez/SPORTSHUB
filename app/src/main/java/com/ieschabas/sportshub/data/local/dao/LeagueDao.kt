@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface LeagueDao {
+
     @Query("SELECT * FROM league")
     fun getAllLeagues(): Flow<List<LeagueEntity>>
 
@@ -17,9 +18,8 @@ interface LeagueDao {
     suspend fun getLeagueById(leagueId: Int): LeagueEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertLeagues(leagues: List<LeagueEntity>)
+    suspend fun insertLeagues(leagues: List<LeagueEntity>): List<Long>
 
     @Update
-    suspend fun updateLeague(league: LeagueEntity)
-
+    suspend fun updateLeague(league: LeagueEntity): Int
 }

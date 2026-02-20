@@ -18,11 +18,11 @@ import com.ieschabas.sportshub.data.local.entities.ClassificationEntity
 )
 abstract class SportsHubDatabase : RoomDatabase() {
     abstract fun classificationDao(): ClassificationDao
-    abstract fun teamDao(): TeamDao
-    abstract fun playerDao(): PlayerDao
-    abstract fun leagueDao(): LeagueDao
-    abstract fun userDao(): UserDao
-    abstract fun matchDao(): MatchDao
-    abstract fun clubDao(): ClubDao
-
+//    abstract fun teamDao(): TeamDao
+//    abstract fun playerDao(): PlayerDao
+//    abstract fun leagueDao(): LeagueDao
+//    abstract fun userDao(): UserDao
+//    abstract fun matchDao(): MatchDao
+//    abstract fun clubDao(): ClubDao
+//
 }
