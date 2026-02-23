@@ -1,4 +1,4 @@
-package com.ieschabas.sportshub.ui.components.matches
+package com.ieschabas.sportshub.ui.components
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Text
@@ -7,7 +7,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.ieschabas.sportshub.ui.components.TeamLogo
 
 @Composable
 fun MatchTeamRow(teamName: String, logoRes: Int) {

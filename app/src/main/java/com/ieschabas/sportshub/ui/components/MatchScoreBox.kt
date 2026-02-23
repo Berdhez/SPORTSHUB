@@ -1,4 +1,4 @@
-package com.ieschabas.sportshub.ui.components.matches
+package com.ieschabas.sportshub.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border

@@ -19,7 +19,7 @@ import com.ieschabas.sportshub.data.local.entities.UserEntity
         PlayerEntity::class,
         TeamEntity::class,
         UserEntity::class],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class SportsHubDatabase : RoomDatabase() {

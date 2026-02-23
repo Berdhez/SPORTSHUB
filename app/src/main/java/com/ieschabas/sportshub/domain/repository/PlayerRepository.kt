@@ -7,5 +7,7 @@ interface PlayerRepository {
 
     fun observePlayers(): Flow<List<Player>>
 
+    fun observePlayersByTeam(teamId: String): Flow<List<Player>>
+
     suspend fun getPlayer(id: String): Player?
 }

@@ -60,7 +60,7 @@ dependencies {
 //    implementation(libs.kotlinx.serialization.json)
     implementation(libs.androidx.compose.material.icons.extended.android)
     implementation(libs.androidx.compose.runtime)
-    implementation(libs.androidx.room.common.jvm)
+    implementation("androidx.room:room-runtime:2.8.4")
     implementation(libs.androidx.room.ktx)
     implementation(libs.identity.doctypes.jvm)
 //    implementation(libs.androidx.navigation.compose)
@@ -73,8 +73,10 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     implementation(libs.androidx.compose.material.icons.extended)
     implementation(libs.hilt.android)
-    implementation(libs.hilt.android)
+
     add("ksp", libs.hilt.compiler.get())
+    add("ksp", "androidx.room:room-compiler:2.8.4")
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
 
 
 }

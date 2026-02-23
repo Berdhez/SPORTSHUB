@@ -11,6 +11,7 @@ import com.ieschabas.sportshub.ui.screens.classification.ClassificationScreen
 import com.ieschabas.sportshub.ui.screens.match.MatchesScreen
 import com.ieschabas.sportshub.ui.screens.player.PlayerDetailScreen
 import com.ieschabas.sportshub.ui.screens.team.TeamDetailScreen
+import com.ieschabas.sportshub.ui.screens.teamList.TeamsListScreen
 import com.ieschabas.sportshub.ui.screens.user.ProfileScreen
 
 @Composable
@@ -31,18 +32,17 @@ fun AppNavigation() {
             "player/{playerId}",
             arguments = listOf(navArgument("playerId") { type = NavType.StringType })
         ) { backStackEntry ->
-            // val playerId = backStackEntry.arguments?.getString("playerId")
-            PlayerDetailScreen(navController = navController)
+            val playerId = backStackEntry.arguments?.getString("playerId") ?: ""
+            PlayerDetailScreen(navController = navController, playerId = playerId)
         }
         composable("profile") { ProfileScreen(navController) }
         composable("register") { RegistrationScreen(navController) }
         composable("settings") { SettingsScreen(navController) }
-        composable("team") { TeamDetailScreen(navController) } // Usado por Dashboard
         composable("teamDetails/{teamId}",
             arguments = listOf(navArgument("teamId") { type = NavType.StringType })
         ) { backStackEntry ->
-            // val teamId = backStackEntry.arguments?.getString("teamId")
-            TeamDetailScreen(navController = navController)
+            val teamId = backStackEntry.arguments?.getString("teamId") ?: ""
+            TeamDetailScreen(navController = navController, teamId = teamId)
         }
         composable("teamsList") { TeamsListScreen(navController) }
     }

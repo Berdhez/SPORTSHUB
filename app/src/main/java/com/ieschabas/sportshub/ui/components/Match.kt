@@ -1,4 +1,4 @@
-package com.ieschabas.sportshub.ui.model
+package com.ieschabas.sportshub.ui.components
 
 import kotlinx.serialization.Serializable
 
