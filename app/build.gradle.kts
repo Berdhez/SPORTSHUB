@@ -63,6 +63,7 @@ dependencies {
     implementation("androidx.room:room-runtime:2.8.4")
     implementation(libs.androidx.room.ktx)
     implementation(libs.identity.doctypes.jvm)
+    implementation(libs.androidx.compose.foundation.layout)
 //    implementation(libs.androidx.navigation.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

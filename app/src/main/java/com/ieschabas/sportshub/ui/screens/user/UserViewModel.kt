@@ -5,17 +5,23 @@ import androidx.lifecycle.viewModelScope
 import com.ieschabas.sportshub.domain.model.User
 import com.ieschabas.sportshub.domain.repository.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class UserViewModel @Inject constructor(
-    repository: UserRepository
+    private val repository: UserRepository
 ) : ViewModel() {
 
-    val users: StateFlow<List<User>> =
+    private val _user = MutableStateFlow<User?>(null)
+    val user: StateFlow<User?> = _user.asStateFlow()
+
+    fun loadCurrentUser() {
         repository.observeUsers()
-            .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
+            .onEach { userList ->
+                _user.value = userList.firstOrNull()
+            }
+            .launchIn(viewModelScope)
+    }
 }
