@@ -3,15 +3,22 @@ package com.ieschabas.sportshub.di
 import com.ieschabas.sportshub.data.repository.ClassificationRepositoryImpl
 import com.ieschabas.sportshub.data.repository.ClubRepositoryImpl
 import com.ieschabas.sportshub.data.repository.LeagueRepositoryImpl
+import com.ieschabas.sportshub.data.repository.MatchRepositoryImpl
+import com.ieschabas.sportshub.data.repository.PlayerRepositoryImpl
+import com.ieschabas.sportshub.data.repository.TeamRepositoryImpl
 import com.ieschabas.sportshub.data.repository.UserRepositoryImpl
 import com.ieschabas.sportshub.domain.repository.ClassificationRepository
 import com.ieschabas.sportshub.domain.repository.ClubRepository
 import com.ieschabas.sportshub.domain.repository.LeagueRepository
+import com.ieschabas.sportshub.domain.repository.MatchRepository
+import com.ieschabas.sportshub.domain.repository.PlayerRepository
+import com.ieschabas.sportshub.domain.repository.TeamRepository
 import com.ieschabas.sportshub.domain.repository.UserRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import jakarta.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -38,7 +45,6 @@ abstract class RepositoryModule {
     ): LeagueRepository
 
 
-
     @Binds
     @Singleton
     abstract fun bindMatchRepository(
@@ -56,10 +62,6 @@ abstract class RepositoryModule {
     abstract fun bindTeamRepository(
         impl: TeamRepositoryImpl
     ): TeamRepository
-
-    @Binds
-    @Singleton
-    abstract fun bindUserRepository(
-        impl: UserRepositoryImpl
-    ): UserRepository
 }
+
+

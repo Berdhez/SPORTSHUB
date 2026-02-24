@@ -22,7 +22,7 @@ class AppDatabaseCallback(
 
             database.classificationDao().upsertAll(payload.classifications)
             database.leagueDao().upsertAll(payload.leagues)
-          database.leagueDao().insertAll(payload.leagues)
+          database.leagueDao().upsertAll(payload.leagues)
             database.teamDao().insertAll(payload.teams)
             database.playerDao().insertAll(payload.players)
             database.matchDao().insertAll(payload.matches)

@@ -1,7 +1,7 @@
 package com.ieschabas.sportshub.data.local.entities
 
 import com.ieschabas.sportshub.domain.model.Classification
-import com.ieschabas.sportshub.ui.screens.Team
+
 import androidx.room.Relation
 import androidx.room.Embedded
 
