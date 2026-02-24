@@ -3,7 +3,7 @@ package com.ieschabas.sportshub.data.local.entities
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "Match")
+@Entity(tableName = "Matches")
 data class MatchEntity(
     @PrimaryKey val id: String,
     val leagueId: String,

@@ -7,8 +7,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.ieschabas.sportshub.ui.screens.*
-import com.ieschabas.sportshub.ui.screens.classification.ClassificationScreen
-import com.ieschabas.sportshub.ui.screens.leagueList.LeagueListScreen
 
 @Composable
 fun AppNavigation() {
@@ -28,10 +26,9 @@ fun AppNavigation() {
             "player/{playerId}",
             arguments = listOf(navArgument("playerId") { type = NavType.StringType })
         ) { backStackEntry ->
-             val playerId = backStackEntry.arguments?.getString("playerId")
-            PlayerDetailScreen(navController = navController)
+            val playerId = backStackEntry.arguments?.getString("playerId") ?: ""
+            PlayerDetailScreen(navController = navController, playerId = playerId)
         }
-
         composable("profile") { ProfileScreen(navController) }
         composable("register") { RegistrationScreen(navController) }
         composable("settings") { SettingsScreen(navController) }
@@ -39,8 +36,8 @@ fun AppNavigation() {
         composable("teamDetails/{teamId}",
             arguments = listOf(navArgument("teamId") { type = NavType.StringType })
         ) { backStackEntry ->
-             val teamId = backStackEntry.arguments?.getString("teamId")
-            TeamDetailScreen(navController = navController)
+            val teamId = backStackEntry.arguments?.getString("teamId") ?: ""
+            TeamDetailScreen(navController = navController, teamId = teamId)
         }
         composable("teamsList") { TeamsListScreen(navController) }
 

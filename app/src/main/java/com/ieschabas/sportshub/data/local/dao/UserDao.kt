@@ -1,25 +1,21 @@
 package com.ieschabas.sportshub.data.local.dao
 
 import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import androidx.room.Update
+import androidx.room.Upsert
 import com.ieschabas.sportshub.data.local.entities.UserEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface UserDao {
 
-    @Query("SELECT * FROM user LIMIT 1")
-    fun getUserProfile(): Flow<UserEntity?>
+    @Query("SELECT * FROM user")
+    fun observeUsers(): Flow<List<UserEntity>>
 
-    @Query("SELECT * FROM user WHERE email = :email")
-    suspend fun getUserByEmail(email: String): UserEntity?
+    @Query("SELECT * FROM user WHERE id = :id LIMIT 1")
+    suspend fun getUser(id: String): UserEntity?
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertOrUpdateUser(user: UserEntity): Long
-
-    @Update
-    suspend fun updateUserInfo(user: UserEntity): Int
+    @Upsert
+    suspend fun upsert(user: UserEntity)
 }
+

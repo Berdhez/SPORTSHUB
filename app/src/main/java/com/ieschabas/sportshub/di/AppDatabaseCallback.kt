@@ -2,7 +2,7 @@ package com.ieschabas.sportshub.di
 
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-
+import com.ieschabas.sportshub.data.local.SampleData
 import com.ieschabas.sportshub.data.local.SportsHubDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -22,11 +22,12 @@ class AppDatabaseCallback(
 
             database.classificationDao().upsertAll(payload.classifications)
             database.leagueDao().upsertAll(payload.leagues)
-//            database.teamDao().insertAll(payload.teams)
-//            database.playerDao().insertAll(payload.players)
-//            database.matchDao().insertAll(payload.matches)
-//            database.userDao().upsert(payload.user)
-//            payload.favorites.forEach { database.userDao().addFavouriteTeam(it) }
+          database.leagueDao().insertAll(payload.leagues)
+            database.teamDao().insertAll(payload.teams)
+            database.playerDao().insertAll(payload.players)
+            database.matchDao().insertAll(payload.matches)
+            database.userDao().upsert(payload.user)
+
         }
     }
 }

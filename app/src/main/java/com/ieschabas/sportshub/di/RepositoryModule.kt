@@ -31,21 +31,35 @@ abstract class RepositoryModule {
     abstract fun bindClubRepository(
         impl: ClubRepositoryImpl
     ): ClubRepository
-//
-//    @Binds
-//    abstract fun bindTeamRepository(
-//        impl: TeamRepositoryImpl
-//    ): TeamRepository
-//
-//    @Binds
-//    abstract fun bindPlayerRepository(
-//        impl: PlayerRepositoryImpl
-//    ): PlayerRepository
-//
+
     @Binds
     abstract fun bindLeagueRepository(
         impl: LeagueRepositoryImpl
     ): LeagueRepository
 
 
+
+    @Binds
+    @Singleton
+    abstract fun bindMatchRepository(
+        impl: MatchRepositoryImpl
+    ): MatchRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindPlayerRepository(
+        impl: PlayerRepositoryImpl
+    ): PlayerRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindTeamRepository(
+        impl: TeamRepositoryImpl
+    ): TeamRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindUserRepository(
+        impl: UserRepositoryImpl
+    ): UserRepository
 }
