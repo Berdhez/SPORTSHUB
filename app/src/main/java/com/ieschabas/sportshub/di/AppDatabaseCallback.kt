@@ -5,29 +5,29 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.ieschabas.sportshub.data.local.SampleData
 import com.ieschabas.sportshub.data.local.SportsHubDatabase
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
+import javax.inject.Inject
+import javax.inject.Provider
+import javax.inject.Singleton
 
-class AppDatabaseCallback(
-    private val scope: CoroutineScope,
-    private val dbProvider: () -> SportsHubDatabase
+@Singleton
+class AppDatabaseCallback @Inject constructor(
+    private val database: Provider<SportsHubDatabase>
 ) : RoomDatabase.Callback() {
+
+    private val applicationScope = CoroutineScope(SupervisorJob())
 
     override fun onCreate(db: SupportSQLiteDatabase) {
         super.onCreate(db)
-        scope.launch(Dispatchers.IO) {
-            val database = dbProvider()
-            val payload = com.ieschabas.sportshub.data.local.SampleData.create()
-
-
-            database.classificationDao().upsertAll(payload.classifications)
-            database.leagueDao().upsertAll(payload.leagues)
-          database.leagueDao().upsertAll(payload.leagues)
-            database.teamDao().insertAll(payload.teams)
-            database.playerDao().insertAll(payload.players)
-            database.matchDao().insertAll(payload.matches)
-            database.userDao().upsert(payload.user)
-
+        applicationScope.launch {
+            val payload = SampleData.create()
+            database.get().leagueDao().upsertAll(payload.leagues)
+            database.get().teamDao().insertAll(payload.teams)
+            database.get().playerDao().insertAll(payload.players)
+            database.get().matchDao().insertAll(payload.matches)
+            database.get().classificationDao().upsertAll(payload.classifications)
+            database.get().userDao().upsert(payload.user)
         }
     }
 }
