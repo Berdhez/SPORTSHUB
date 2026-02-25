@@ -44,8 +44,9 @@ fun MyNavigationBar(
                 selected = currentRoute == item.route,
                 onClick = {
                     navController.navigate(item.route) {
-                        popUpTo(navController.graph.startDestinationId) {
+                        popUpTo("home") {
                             saveState = true
+                            inclusive = false
                         }
                         launchSingleTop = true
                         restoreState = true

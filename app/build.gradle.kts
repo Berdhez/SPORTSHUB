@@ -88,4 +88,18 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.9.0"))
     implementation("com.google.firebase:firebase-messaging")
     implementation("com.google.firebase:firebase-auth")
+
+    // Imágenes desde URL (Coil)
+    implementation("io.coil-kt:coil-compose:2.6.0")
+
+    // Vídeo y audio (ExoPlayer / Media3)
+    implementation("androidx.media3:media3-exoplayer:1.2.1")
+    implementation("androidx.media3:media3-ui:1.2.1")
+
+    // Google Maps Compose
+    implementation("com.google.maps.android:maps-compose:2.15.0")
+    implementation("com.google.android.gms:play-services-maps:18.2.0")
+
+    // Animaciones Lottie
+    implementation("com.airbnb.android:lottie-compose:6.4.0")
 }
