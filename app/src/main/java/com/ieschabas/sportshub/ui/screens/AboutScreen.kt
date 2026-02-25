@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.ieschabas.sportshub.R
 import com.ieschabas.sportshub.ui.components.MyTopAppBar
-@Preview
+
 @Composable
 fun AboutScreen(navController: NavController) {
     Scaffold(

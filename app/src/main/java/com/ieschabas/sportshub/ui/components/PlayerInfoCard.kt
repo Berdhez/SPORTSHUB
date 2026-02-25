@@ -18,12 +18,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.ieschabas.sportshub.R
 
 @Composable
-fun PlayerInfoCard(name: String, number: Int, position: String) {
+fun PlayerInfoCard(name: String, number: Int, position: String, playerId: String) {
+    val imageRes = when {
+        playerId.endsWith("_1") -> R.drawable.jugador1
+        playerId.endsWith("_2") -> R.drawable.jugadora1
+        else -> R.drawable.jugador1
+    }
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -37,7 +45,7 @@ fun PlayerInfoCard(name: String, number: Int, position: String) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Image(
-                imageVector = Icons.Default.Person,
+                painter = painterResource(id = imageRes),
                 contentDescription = "Player photo",
                 modifier = Modifier
                     .size(80.dp)

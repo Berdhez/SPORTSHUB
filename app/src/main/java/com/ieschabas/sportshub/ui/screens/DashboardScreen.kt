@@ -77,13 +77,13 @@ fun DashboardScreen(navController: NavController) {
                     DashboardCard(
                         text = "Ligas",
                         backgroundColor = Color(0xFF4DB6AC),
-                        onClick = {navController.navigate("league") },
+                        onClick = {navController.navigate("leagues") },
                         modifier = Modifier.weight(1f)
                     )
                     DashboardCard(
                         text = "Equipos",
                         backgroundColor = Color(0xFF4FC3F7),
-                        onClick = {navController.navigate("team") },
+                        onClick = {navController.navigate("teamsList") },
                         modifier = Modifier.weight(1f)
                     )
                 }
