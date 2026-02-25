@@ -21,11 +21,11 @@ fun RegistrationScreen(
     navController: NavController,
     viewModel: AuthViewModel = hiltViewModel()
 ) {
-    var nombre by remember { mutableStateOf("") }
-    var apellido by remember { mutableStateOf("") }
-    var nombreUsuario by remember { mutableStateOf("") }
+    var firstName by remember { mutableStateOf("") }
+    var lastName by remember { mutableStateOf("") }
+    var username by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
-    var contraseña by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
 
     val uiState by viewModel.uiState.collectAsState()
 
@@ -68,20 +68,20 @@ fun RegistrationScreen(
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             OutlinedTextField(
-                value = nombre,
-                onValueChange = { nombre = it },
+                value = firstName,
+                onValueChange = { firstName = it },
                 label = { Text("Nombre") },
                 modifier = Modifier.fillMaxWidth()
             )
             OutlinedTextField(
-                value = apellido,
-                onValueChange = { apellido = it },
+                value = lastName,
+                onValueChange = { lastName = it },
                 label = { Text("Apellido") },
                 modifier = Modifier.fillMaxWidth()
             )
             OutlinedTextField(
-                value = nombreUsuario,
-                onValueChange = { nombreUsuario = it },
+                value = username,
+                onValueChange = { username = it },
                 label = { Text("Nombre de usuario") },
                 modifier = Modifier.fillMaxWidth()
             )
@@ -92,8 +92,8 @@ fun RegistrationScreen(
                 modifier = Modifier.fillMaxWidth()
             )
             OutlinedTextField(
-                value = contraseña,
-                onValueChange = { contraseña = it },
+                value = password,
+                onValueChange = { password = it },
                 label = { Text("Contraseña") },
                 modifier = Modifier.fillMaxWidth()
             )
@@ -115,8 +115,8 @@ fun RegistrationScreen(
                     onClick = {
                         viewModel.register(
                             email = email,
-                            password = contraseña,
-                            displayName = "$nombre $apellido".trim().ifBlank { nombreUsuario }
+                            password = password,
+                            displayName = "$firstName $lastName".trim().ifBlank { username }
                         )
                     },
                     modifier = Modifier.fillMaxWidth(),

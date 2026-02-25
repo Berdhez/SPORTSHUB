@@ -41,7 +41,7 @@ fun LoginScreen(
     viewModel: AuthViewModel = hiltViewModel()
 ) {
     var email by remember { mutableStateOf("") }
-    var contraseña by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
     var rememberMe by remember { mutableStateOf(false) }
 
     val uiState by viewModel.uiState.collectAsState()
@@ -84,8 +84,8 @@ fun LoginScreen(
             )
             Spacer(modifier = Modifier.height(8.dp))
             MyTextField(
-                value = contraseña,
-                onValueChange = { contraseña = it },
+                value = password,
+                onValueChange = { password = it },
                 placeholder = "Contraseña",
                 isPassword = true
             )
@@ -116,7 +116,7 @@ fun LoginScreen(
             } else {
                 MyButton(
                     text = "Entrar",
-                    onClick = { viewModel.login(email, contraseña) },
+                    onClick = { viewModel.login(email, password) },
                     modifier = Modifier.fillMaxWidth()
                 )
             }
