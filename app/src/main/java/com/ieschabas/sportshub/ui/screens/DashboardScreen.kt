@@ -102,6 +102,15 @@ fun DashboardScreen(navController: NavController) {
                         modifier = Modifier.weight(1f)
                     )
                 }
+
+                Row {
+                    DashboardCard(
+                        text = "Multimedia",
+                        backgroundColor = Color(0xFF7B1FA2),
+                        onClick = { navController.navigate("multimedia") },
+                        modifier = Modifier.weight(1f)
+                    )
+                }
             }
         }
     }

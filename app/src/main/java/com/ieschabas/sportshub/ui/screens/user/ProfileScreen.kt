@@ -10,9 +10,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.ieschabas.sportshub.ui.components.AppBottomBar
 import com.ieschabas.sportshub.ui.components.AppDrawer
 import com.ieschabas.sportshub.ui.components.AppTopBar
+import com.ieschabas.sportshub.ui.components.MyNavigationBar
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -40,8 +40,6 @@ fun ProfileScreen(
             }
         }
     ) {
-        var selectedItem by remember { mutableStateOf(3) } // Perfil en la BottomBar
-
         Scaffold(
             topBar = {
                 AppTopBar(
@@ -50,11 +48,7 @@ fun ProfileScreen(
                 )
             },
             bottomBar = {
-                AppBottomBar(
-                    navController = navController,
-                    selectedItem = selectedItem,
-                    onItemSelected = { selectedItem = it }
-                )
+                MyNavigationBar(navController = navController)
             }
         ) { innerPadding ->
             if (user == null) {

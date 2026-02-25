@@ -36,6 +36,7 @@ fun AppNavigation() {
         composable("leagues") { LeagueListScreen(navController) }
         composable("login") { LoginScreen(navController, authViewModel) }
         composable("matches") { MatchesScreen(navController) }
+        composable("multimedia") { MultimediaScreen(navController) }
         composable(
             "player/{playerId}",
             arguments = listOf(navArgument("playerId") { type = NavType.StringType })

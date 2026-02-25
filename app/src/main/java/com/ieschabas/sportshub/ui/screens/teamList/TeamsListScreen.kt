@@ -9,9 +9,9 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.ieschabas.sportshub.ui.components.AppBottomBar
 import com.ieschabas.sportshub.ui.components.AppDrawer
 import com.ieschabas.sportshub.ui.components.AppTopBar
+import com.ieschabas.sportshub.ui.components.MyNavigationBar
 import com.ieschabas.sportshub.ui.components.TeamsBox
 import kotlinx.coroutines.launch
 import com.ieschabas.sportshub.domain.model.Team
@@ -37,15 +37,12 @@ fun TeamsListScreen(
             }
         }
     ) {
-        var selectedItem by remember { mutableStateOf(0) }
-
         Scaffold(
             topBar = {
                 AppTopBar(title = "Equipos", onMenuClick = { scope.launch { drawerState.open() } })
             },
             bottomBar = {
-                AppBottomBar(navController = navController, selectedItem = selectedItem,
-                    onItemSelected = { selectedItem = it })
+                MyNavigationBar(navController = navController)
             }
         ) { innerPadding ->
             LazyColumn(

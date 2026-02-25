@@ -1,5 +1,6 @@
 package com.ieschabas.sportshub.ui.screens
 
+import android.content.res.Configuration
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -8,6 +9,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -22,6 +25,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -59,22 +63,27 @@ fun LoginScreen(
     Scaffold(
         topBar = { MyTopAppBar(title = "Acceso") }
     ) { paddingValues ->
+        val configuration = LocalConfiguration.current
+        val isLandscape = configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+        val logoHeight = if (isLandscape) 60.dp else 150.dp
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues)
-                .padding(16.dp),
+                .padding(16.dp)
+                .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Spacer(modifier = Modifier.weight(1f))
+            Spacer(modifier = Modifier.height(if (isLandscape) 8.dp else 16.dp))
             Image(
                 painter = painterResource(id = R.drawable.logo_chabas),
                 contentDescription = "Logo",
                 modifier = Modifier
-                    .height(150.dp)
-                    .padding(bottom = 32.dp)
+                    .height(logoHeight)
+                    .padding(bottom = if (isLandscape) 8.dp else 32.dp)
             )
-            Spacer(modifier = Modifier.weight(0.5f))
+            Spacer(modifier = Modifier.height(if (isLandscape) 4.dp else 8.dp))
 
             MyTextField(
                 value = email,
@@ -131,7 +140,7 @@ fun LoginScreen(
                     Text("Regístrate", color = AzulPetroleo)
                 }
             }
-            Spacer(modifier = Modifier.weight(1.5f))
+            Spacer(modifier = Modifier.height(24.dp))
         }
     }
 }
