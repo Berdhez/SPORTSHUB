@@ -59,6 +59,8 @@ fun ClassificationScreen(navController: NavController,
     val scope = rememberCoroutineScope()
 
     val classifications by viewModel.classifications.collectAsState()
+    val teams by viewModel.teams.collectAsState()
+    val teamNameById = remember(teams) { teams.associateBy({ it.id }, { it.name }) }
 
     ModalNavigationDrawer(
         drawerState = drawerState,
@@ -92,7 +94,7 @@ fun ClassificationScreen(navController: NavController,
             val teamsData = remember(classifications) {
                 classifications.map { c ->
                     TeamStats(
-                        teamName = c.teamId,
+                        teamName = teamNameById[c.teamId] ?: c.teamId,
                         pj = c.gamesPlayed,
                         g = c.victories,
                         e = c.ties,
