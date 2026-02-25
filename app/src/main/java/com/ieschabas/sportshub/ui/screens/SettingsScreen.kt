@@ -10,6 +10,9 @@ import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -25,9 +28,27 @@ import com.ieschabas.sportshub.ui.components.SwitchSettingItem
 import com.ieschabas.sportshub.ui.theme.SPORTSHUBTheme
 import kotlinx.coroutines.launch
 
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.ieschabas.sportshub.ui.screens.auth.AuthViewModel
+import com.ieschabas.sportshub.ui.screens.auth.AuthUiState
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SettingsScreen(navController: NavController) {
+fun SettingsScreen(
+    navController: NavController,
+    authViewModel: AuthViewModel = hiltViewModel()
+) {
+
+    val uiState by authViewModel.uiState.collectAsState()
+
+    // Cuando el estado vuelva a Idle tras logout, navegar al login
+    LaunchedEffect(uiState) {
+        if (uiState is AuthUiState.Idle && !authViewModel.isLoggedIn()) {
+            navController.navigate("login") {
+                popUpTo(0) { inclusive = true }
+            }
+        }
+    }
 
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
@@ -65,6 +86,10 @@ fun SettingsScreen(navController: NavController) {
                 SwitchSettingItem(title = "Activar Notificaciones", initialChecked = true)
                 ButtonSettingItem(title = "Gestionar cuenta",
                     onClick = { /* TODO */ })
+                ButtonSettingItem(
+                    title = "Cerrar sesión",
+                    onClick = { authViewModel.logout() }
+                )
 
                 Spacer(modifier = Modifier.height(16.dp))
 
