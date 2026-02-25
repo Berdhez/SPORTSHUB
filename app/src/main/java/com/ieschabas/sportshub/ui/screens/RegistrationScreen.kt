@@ -8,22 +8,36 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.ieschabas.sportshub.ui.screens.auth.AuthUiState
+import com.ieschabas.sportshub.ui.screens.auth.AuthViewModel
 import com.ieschabas.sportshub.ui.theme.AzulPetroleo
-import java.text.SimpleDateFormat
-import java.util.*
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun RegistrationScreen(navController: NavController) {
-    var nombre by remember { mutableStateOf("") }
-    var apellido by remember { mutableStateOf("") }
-    var nombreUsuario by remember { mutableStateOf("") }
+fun RegistrationScreen(
+    navController: NavController,
+    viewModel: AuthViewModel = hiltViewModel()
+) {
+    var firstName by remember { mutableStateOf("") }
+    var lastName by remember { mutableStateOf("") }
+    var username by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
-    var contraseña by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
+
+    val uiState by viewModel.uiState.collectAsState()
+
+    // Navegar a home si el registro es exitoso
+    LaunchedEffect(uiState) {
+        if (uiState is AuthUiState.Success) {
+            navController.navigate("home") {
+                popUpTo("login") { inclusive = true }
+            }
+            viewModel.resetState()
+        }
+    }
 
     Scaffold(
         topBar = {
@@ -51,23 +65,23 @@ fun RegistrationScreen(navController: NavController) {
                 .padding(paddingValues)
                 .padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(16.dp)
+            verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             OutlinedTextField(
-                value = nombre,
-                onValueChange = { nombre = it },
+                value = firstName,
+                onValueChange = { firstName = it },
                 label = { Text("Nombre") },
                 modifier = Modifier.fillMaxWidth()
             )
             OutlinedTextField(
-                value = apellido,
-                onValueChange = { apellido = it },
+                value = lastName,
+                onValueChange = { lastName = it },
                 label = { Text("Apellido") },
                 modifier = Modifier.fillMaxWidth()
             )
             OutlinedTextField(
-                value = nombreUsuario,
-                onValueChange = { nombreUsuario = it },
+                value = username,
+                onValueChange = { username = it },
                 label = { Text("Nombre de usuario") },
                 modifier = Modifier.fillMaxWidth()
             )
@@ -78,24 +92,38 @@ fun RegistrationScreen(navController: NavController) {
                 modifier = Modifier.fillMaxWidth()
             )
             OutlinedTextField(
-                value = contraseña,
-                onValueChange = { contraseña = it },
+                value = password,
+                onValueChange = { password = it },
                 label = { Text("Contraseña") },
                 modifier = Modifier.fillMaxWidth()
             )
-            Button(
-                onClick = {
-                    navController.navigate("login")
-                    val fechaRegistro = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
-                    // Aquí puedes manejar la lógica de registro
-                },
-                modifier = Modifier.fillMaxWidth(),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = AzulPetroleo
-                )
-            ) {
-                Text("Registrarse")
 
+            // Mensaje de error
+            if (uiState is AuthUiState.Error) {
+                Text(
+                    text = (uiState as AuthUiState.Error).message,
+                    color = MaterialTheme.colorScheme.error,
+                    style = MaterialTheme.typography.bodySmall,
+                    modifier = Modifier.fillMaxWidth()
+                )
+            }
+
+            if (uiState is AuthUiState.Loading) {
+                CircularProgressIndicator()
+            } else {
+                Button(
+                    onClick = {
+                        viewModel.register(
+                            email = email,
+                            password = password,
+                            displayName = "$firstName $lastName".trim().ifBlank { username }
+                        )
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = ButtonDefaults.buttonColors(containerColor = AzulPetroleo)
+                ) {
+                    Text("Registrarse")
+                }
             }
         }
     }

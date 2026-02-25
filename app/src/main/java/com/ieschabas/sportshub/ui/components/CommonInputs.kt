@@ -18,6 +18,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.Gray
 import androidx.compose.ui.graphics.Color.Companion.White
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -47,8 +51,13 @@ fun MyTextField(
     placeholder: String,
     modifier: Modifier = Modifier,
     isPassword: Boolean = false,
-
+    isEmail: Boolean = false,
 ) {
+    val keyboardType = when {
+        isPassword -> KeyboardType.Password
+        isEmail    -> KeyboardType.Email
+        else       -> KeyboardType.Text
+    }
 
     OutlinedTextField(
         value = value,
@@ -63,8 +72,8 @@ fun MyTextField(
             focusedIndicatorColor = AzulPetroleo
         ),
         singleLine = true,
-
-
+        visualTransformation = if (isPassword) PasswordVisualTransformation() else VisualTransformation.None,
+        keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
     )
 }
 
