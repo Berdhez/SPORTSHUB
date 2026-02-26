@@ -4,16 +4,19 @@ import com.ieschabas.sportshub.data.local.dao.TeamDao
 import com.ieschabas.sportshub.data.local.dao.PlayerDao
 import com.ieschabas.sportshub.data.local.entities.PlayerEntity
 import com.ieschabas.sportshub.data.local.mapper.toDomain
+import com.ieschabas.sportshub.di.DataSourceRoom
 import com.ieschabas.sportshub.domain.model.Team
 import com.ieschabas.sportshub.domain.repository.TeamRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
+@DataSourceRoom
 class TeamRepositoryImpl @Inject constructor(
     private val teamDao: TeamDao,
     private val playerDao: PlayerDao
 ) : TeamRepository {
+
 
     override fun observeTeams(): Flow<List<Team>> =
         teamDao.observeTeams()
