@@ -17,7 +17,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SPORTSHUB"
+        android:usesCleartextTraffic="true"
         tools:ignore="ExtraText">
+
 
         <!-- Clave API de Google Maps -->
         <meta-data

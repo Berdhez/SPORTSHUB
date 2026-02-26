@@ -2,6 +2,7 @@ package com.ieschabas.sportshub.data.repository
 
 import com.ieschabas.sportshub.data.local.dao.PlayerDao
 import com.ieschabas.sportshub.data.local.mapper.toDomain
+import com.ieschabas.sportshub.di.DataSourceRoom
 import com.ieschabas.sportshub.domain.model.Player
 import com.ieschabas.sportshub.domain.repository.PlayerRepository
 import kotlinx.coroutines.flow.Flow
@@ -9,9 +10,11 @@ import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 
+@DataSourceRoom
 class PlayerRepositoryImpl @Inject constructor(
     private val playerDao: PlayerDao
 ) : PlayerRepository {
+
 
     override fun observePlayers(): Flow<List<Player>> =
         playerDao.observePlayers()

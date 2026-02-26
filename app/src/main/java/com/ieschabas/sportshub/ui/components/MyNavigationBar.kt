@@ -48,9 +48,10 @@ fun MyNavigationBar(
                             saveState = true
                             inclusive = false
                         }
-                        launchSingleTop = true
-                        restoreState = true
+
+
                     }
+
                 },
                 colors = NavigationBarItemDefaults.colors(
                     selectedIconColor = Color.White,
